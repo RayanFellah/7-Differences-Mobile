@@ -1,0 +1,42 @@
+<div class="history-header">
+    <h1>Visionnement enregistré </h1>
+</div>
+<div class="page-container">
+    <mat-table [dataSource]="replayHistory" class="mat-elevation-z8">
+        <!-- Colonnes Date et Heure -->
+        <ng-container matColumnDef="dateHeure">
+            <mat-header-cell *matHeaderCellDef> {{languageService.translate('Date et Heure', 'Date and ime' )}}  </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.dateHeure | date:'medium'}} </mat-cell>
+        </ng-container>
+
+        <!-- Colonnes nom GameCard -->
+        <ng-container matColumnDef="GameCard">
+            <mat-header-cell *matHeaderCellDef> GameCard </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.gameCardName}} </mat-cell>
+        </ng-container>
+
+         <!-- Colonnes rejouer replay -->
+         <ng-container matColumnDef="replay">
+            <mat-header-cell *matHeaderCellDef> {{languageService.translate('Visionner', 'Play' )}} </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-raised-button color="primary" (click)="playReplay(element)">
+                    {{languageService.translate('Visionner', 'Play' )}}
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <!-- Colonnes effacer replay -->
+        <ng-container matColumnDef="effacer">
+            <mat-header-cell *matHeaderCellDef> {{languageService.translate('Effacer', 'Delete' )}} </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-raised-button color="primary" (click)="effacerReplay(element)">
+                    {{languageService.translate('Effacer', 'Delete' )}}
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" pageSize="5" showFirstLastButtons></mat-paginator>
+</div>

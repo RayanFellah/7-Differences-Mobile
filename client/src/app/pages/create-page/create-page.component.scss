@@ -1,0 +1,75 @@
+#containeur {
+    position: absolute;
+    top: 50px;
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+    justify-content: flex-start;
+}
+.tool-bar-row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+p {
+    text-transform: uppercase;
+    text-align: center;
+}
+.h1 {
+    font-size: 32px;
+}
+mat-button{
+    align-self: center;
+}
+.full-width {
+    width: 100%;
+}
+.fiche {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 32px;
+}
+
+#titles {
+    grid-area: titles;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5vw;
+}
+
+#back,
+#confirm {
+    border-radius: 10px;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    grid-area: title;
+    text-align: center;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.format {
+    grid-area: format;
+    text-align: center;
+    font-size: small;
+}
+
+input[type='file'] {
+    display: none;
+}

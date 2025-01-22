@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@types/socket.io-client": "^3.0.0",
+    "browser-image-compression": "^2.0.2",
+    "canvas": "^2.11.2",
+    "crypto": "^1.0.1",
+    "electron-reload": "^2.0.0-alpha.1",
+    "socket.io-client": "^4.6.0",
+    "uuid": "^9.0.0"
+  }
+}

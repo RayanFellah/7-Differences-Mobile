@@ -1,0 +1,29 @@
+
+mat-expansion-panel {
+    margin: 0px 10px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+.field {
+    margin-bottom: 20px;
+    flex-direction: row;
+}
+.input-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    mat-form-field {
+        flex-grow: 1;
+        border: none;
+   }
+
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+

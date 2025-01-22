@@ -1,0 +1,18 @@
+<div id="container">
+    <div id="content">
+        <app-game-page *ngIf="replayService.isSolo" #gamePage></app-game-page>
+        <app-game-page-classic1v1 *ngIf="!replayService.isSolo" #gamePage1v1></app-game-page-classic1v1>
+    </div>
+    <div>
+        <input #progressBar class="top" type="range" [(ngModel)]="this.clickHistoryService.timeFraction" [max]="this.clickHistoryService.clickHistory[clickHistoryService.clickHistory.length-1].time"  (mouseup)="unclickProgressBar()" >
+    </div>
+    <div class="bottom">
+        <app-control-video (videoToolEmitter)="updateChrono($event)" #controlBar></app-control-video>
+        <button mat-button (click)="this.saveReplay()" [disabled]="saved">
+            {{ languageService.translate('Sauvegarder', 'Save') }} 
+        </button>
+        <button mat-button routerLink="/home">
+            {{ languageService.translate('Quitter', 'Quit') }}
+        </button>
+    </div>
+</div>

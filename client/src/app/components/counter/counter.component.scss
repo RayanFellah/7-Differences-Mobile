@@ -1,0 +1,15 @@
+div {
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    color: var(--text-color);
+    justify-content: center;
+
+    background-color: var(--background-color);
+    //  url('../../../assets/infoBox.png') no-repeat;
+    background-size: 220px;
+    // background-position: left -10px  top -20px ;
+    font-size: small;
+    margin: 10px;
+    padding: 10px 20px;
+}

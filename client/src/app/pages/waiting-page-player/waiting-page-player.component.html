@@ -1,0 +1,50 @@
+<app-top-bar [title]="ls.translate('Salle d\'attente', 'Waiting room')" [backArrow]=false>
+    <div>
+        <button mat-button *ngIf="this.gameInfo.isClassic" [routerLink]="['/selecto']" (click)="leaveLobby()">
+            {{
+            ls.translate('Quitter', 'Leave')
+            }}
+        </button>
+        <button mat-button *ngIf="!this.gameInfo.isClassic" [routerLink]="['/limited-selecto']" (click)="leaveLobby()">
+            {{
+            ls.translate('Quitter', 'Leave')
+
+            }}
+        </button>
+
+    </div>
+</app-top-bar>
+
+<div id="wrapper">
+    <div id="container">
+        <div>
+            <h1><strong>
+                    {{
+                    ls.translate('Fiche', 'Card')
+                    }} : {{gameName}}</strong></h1>
+        </div>
+        <div id="players">
+            <div class="inlineText" *ngIf="player1Name">
+                <span><strong>{{this.player1Name}}</strong> {{ls.translate('a rejoint la partie', 'has joined game')}}</span>
+              </div>
+              <div class="inlineText" *ngIf="player2Name">
+                <span><strong>{{this.player2Name}}</strong> {{ls.translate('a rejoint la partie', 'has joined game')}}</span>
+              
+              </div>
+              <div class="inlineText" *ngIf="player3Name">
+                <span><strong>{{this.player3Name}}</strong> {{ls.translate('a rejoint la partie', 'has joined game')}}</span>
+         
+              </div>
+              <div class="inlineText" *ngIf="player4Name">
+                <span><strong>{{this.player4Name}}</strong> {{ls.translate('a rejoint la partie', 'has joined game')}}</span>
+           
+              </div>
+                  <div *ngIf="!player1Name">
+                <span id="waitTitle">En attente d'un premier joueur...</span>
+                </div>
+            <div *ngIf="player1Name && !player2Name">
+                <span id="waitTitle">{{ls.translate('En attente d\'un deuxième joueur...', 'Waiting for a second player')}}</span>
+            </div>
+    </div>
+</div>
+<app-channel-widget></app-channel-widget>

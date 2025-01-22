@@ -1,0 +1,28 @@
+input{
+    background: 0;
+    height: 32px;
+    width: 32px;
+   border-radius: 50%;
+}
+input:hover{
+    cursor: pointer;
+}
+input:focus{
+    transform: scale(0.8);
+}
+
+ #colorPicker{
+    position: relative;
+    outline: 1px solid black;
+}
+ #colorPicker::after{
+    position: absolute;
+    content: '';
+    background-image: url(color-circle.png);
+    background-size: contain;
+    height: 32px;
+    width: 32px;
+    top:-1px; bottom:0px; 
+    left:-1px; right:0px;
+    pointer-events: none;
+}  

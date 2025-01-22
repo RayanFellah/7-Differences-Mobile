@@ -1,0 +1,44 @@
+// #background{
+//   //background: white;
+//   position: relative;
+//   border-style: solid;
+//   border-color: rgb(0, 255, 229);
+//  /* height :630px;
+//   width: 840px;*/
+  
+//   height :480px;
+//   width: 640px;
+  
+//   }
+//   #foreground{
+//   padding: 0;
+//   border: 0;
+//   margin: 0;
+//   position: absolute;
+//   top: 0;
+//   }
+// #bigDiv{
+//   position: relative;
+//   top: 0;
+//   left: 0;
+// }
+div{
+  position: relative;
+  border-style: solid;
+  border-color: rgb(0, 255, 229);
+  height :480px;
+  width: 640px;
+background-color: white;
+}
+.enfant{
+  padding: 0;
+  border: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+
+ 
+}
+// #background{
+//   background: white;
+// }

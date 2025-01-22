@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'spaceranger';
+    //src: url('../../../assets/fonts/spaceranger.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+button {
+    font-family:'spaceranger';
+    height: 50px;
+    width: 200px;
+    border-radius: 25px;
+    color: var(--text-color);
+    background-color: transparent;
+    border-color: aquamarine;
+}
+button:enabled{
+    box-shadow:
+    0 0 10px rgb(0, 255, 229),
+    -10px 0 50px rgb(0, 152, 217),
+    10px 0 50px rgb(0, 255, 255);
+    
+}
+button:hover:enabled {
+    background-color: rgba(0, 152, 217, 0.501); 
+    scale: 1.05;
+    color:rgb(1, 255, 65);
+    cursor:pointer;
+  }
+
+button:disabled{
+    background-color:rgb(43, 105, 99);
+    color:grey;
+}
+
+
+		

@@ -1,0 +1,8 @@
+<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+<span [ngSwitch]="tool">
+    <button *ngSwitchCase="0" class="fa-solid fa-play"></button>
+    <button *ngSwitchCase="1" class="fa-solid fa-pause"></button>
+    <button *ngSwitchCase="2" class="fa-solid fa-arrows-rotate"></button>
+    <button *ngSwitchCase="3"><i class="fa-solid fa-forward"></i></button>
+    <button *ngSwitchCase="4"><i class="fa-solid fa-forward-fast"></i></button>
+</span>

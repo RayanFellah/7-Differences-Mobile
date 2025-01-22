@@ -1,0 +1,15 @@
+<!-- <router-outlet></router-outlet> -->
+
+<app-top-bar [title]="'Administration'" *ngIf="router.url === '/config'">
+    
+    <button mat-button routerLink="/create-sheet">
+        {{ ls.translate('Créer une fiche', 'Create card') }}
+    </button>
+    <!-- Not working : -->
+    <!-- <button mat-button (click)="openDialogConfirmDeleteAllCards()">
+        {{ ls.translate('Supprimer toutes les fiches', 'Delete all cards') }}
+    </button> -->
+</app-top-bar>
+<app-selecto-page *ngIf="router.url === '/config'"></app-selecto-page>
+
+<app-channel-widget></app-channel-widget>

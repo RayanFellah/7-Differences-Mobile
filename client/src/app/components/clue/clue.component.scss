@@ -1,0 +1,17 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 200px;
+    border-radius: 25px;
+    border: 0px;
+    color: rgb(1, 255, 65);
+    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+
+    background: url('../../../assets/infoBox.png') no-repeat;
+    background-size: 220px;
+    background-position: left -10px top -20px;
+    font-size: small;
+}

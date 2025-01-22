@@ -1,0 +1,22 @@
+<app-top-bar *ngIf="isSelectoPage" [title]="ls.translate('Partie classique', 'Classic mode')">
+    <button mat-button (click)="decrement()" [disabled]="first === 0">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button mat-button (click)="increment()" [disabled]="!isNextPage()">
+        <mat-icon>arrow_forward</mat-icon>
+    </button>
+</app-top-bar>
+
+<div *ngIf="!isSelectoPage">
+    <button mat-button (click)="decrement()" [disabled]="first === 0">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button mat-button (click)="increment()" [disabled]="!isNextPage()">
+        <mat-icon>arrow_forward</mat-icon>
+    </button>
+</div>
+
+<div class="cards">
+    <app-game-card-list [first]="first" [last]="last" [gameCards]="gameCards"></app-game-card-list>
+</div>
+<app-channel-widget></app-channel-widget>

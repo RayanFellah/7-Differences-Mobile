@@ -1,0 +1,5 @@
+enum GameAccessType {
+  ALL,
+  FRIENDS_ONLY,
+  FRIENDS_AND_THEIR_FRIENDS,
+}

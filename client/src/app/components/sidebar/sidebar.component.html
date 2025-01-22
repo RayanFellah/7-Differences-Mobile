@@ -1,0 +1,33 @@
+<div id="wrapper">
+    <div id="container">
+        <div>
+            <div id="scrollBox">
+                <div>
+                    <div id="messageWrapper">
+                        <!-- Section Messages -->
+                        <div class="message"
+                            [class.opponent]="message.senderType === senderType.PLAYER && username !== message.sender"
+                            [class.system]="message.senderType === senderType.SYSTEM"
+                            [class.event]="message.senderType === senderType.EVENT"
+                            *ngFor="let message of messenger.messages">
+                            <div>
+                                <span class="sender">{{ message.sender }}</span>
+                                <span class="time">{{ message.time }}</span>
+                            </div>
+                            <div>
+                                <span class="body" [innerHTML]="message.body"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <!-- Nouveau Message -->
+            <input type="text" maxlength="200" (change)="setContent($event)" placeholder="..." [(ngModel)]="messageContent"
+                [disabled]="!canSend" (focus)="clickChat()" (blur)="closeChat()">
+            <button (click)="send()" [disabled]="!canSend">Envoyer <i class="fas fa-envelope"></i></button>
+        </div>
+    </div>
+</div>

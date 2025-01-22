@@ -1,0 +1,57 @@
+<app-top-bar [title]="ls.translate('Paramètres de la partie', 'Game settings')" [returnTo]="'/limited-selecto'">
+    <button mat-button (click)="setConstants()">
+        {{
+        ls.translate('Confirmer', 'Proceed')
+        }}
+    </button>
+    <button mat-button (click)="openDialogConfirmResetConstants()">
+        {{
+        ls.translate('Réinitialiser', 'Reset')
+        }}
+    </button>
+</app-top-bar>
+
+<div class="container">
+    <div class="constants">
+        <div class="constant">
+            <label>
+                {{
+                ls.translate('Temps initial (secondes)', 'Initial time (seconds)')
+                }}
+            </label>
+            <input type="range" min="30" max="120" step="1" [(ngModel)]="initialTime" />
+            <span>{{ initialTime }}</span>
+        </div>
+        <div class="constant">
+            <label>
+                {{
+                ls.translate('Temps max plafond (secondes)', 'Max ceiling time (seconds)')
+                }}
+            </label>
+            <input type="range" min="120" max="150" [(ngModel)]="maxTime" />
+            <span>{{ maxTime }}</span>
+        </div>
+        <div class="constant">
+            <label>
+                {{
+                ls.translate('Temps ajouté par différence trouvée (secondes)', 'Time added by difference found(seconds)')
+                }}
+            </label>
+            <input type="range" min="0" max="10" [(ngModel)]="timeWon" />
+            <span>{{ timeWon }}</span>
+        </div>
+        <div class="constant">
+            <label>
+                {{
+                ls.translate('Mode triche', 'Cheat mode')
+                }}
+            </label>
+            <mat-slide-toggle (change)="toggleCheatMode()"></mat-slide-toggle>
+            <label>{{ cheatMode ? ls.translate('Activé', 'Enabled') : ls.translate('Désactivé', 'Disabled') }}
+            </label>
+
+        </div>
+    </div>
+</div>
+
+<app-channel-widget></app-channel-widget>

@@ -1,0 +1,10 @@
+<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+<span [ngSwitch]="tool">
+    <button (click)="setTool()" *ngSwitchCase="0" class="fa-solid fa-pen"></button>
+    <button (click)="setTool()" *ngSwitchCase="1" class="fa-solid fa-eraser"></button>
+    <button (click)="setTool()" *ngSwitchCase="2" class="fa-solid fa-square-full">
+    </button>
+    <button (click)="setTool()" *ngSwitchCase="3" class="fa-solid fa-circle"></button>
+    <button (click)="setTool()" *ngSwitchCase="4" class="fa-solid fa-spray-can"></button>
+    <button (click)="setTool()" *ngSwitchCase="5" class="fa-solid fa-fill"></button>
+</span>

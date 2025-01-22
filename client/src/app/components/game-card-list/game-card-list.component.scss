@@ -1,0 +1,9 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 100px;
+    justify-content: space-around;
+    align-items: space-around;
+    gap: 75px;
+ 
+}

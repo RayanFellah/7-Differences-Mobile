@@ -1,0 +1,62 @@
+<div>
+    <div class="grid-item" [style.background-image]="img1URL" *ngIf="gameCard">
+        <div class="description-box" [style.background-color]="difficulty === 'Facile' ? 'green' : 'red'">
+            <p>{{ls.translate('Fiche', 'Card')}} : {{ name }}</p>
+            <p id="difficulty">
+                {{ difficulty }}
+            </p>
+            <p id="nombre differenece">
+                nombre de differences: {{ this.gameCard.differences.length }}
+            </p>
+        </div>
+    </div>
+
+    <a *ngIf="page === 'Selecto'">
+        <div class="container">
+            {{
+            ls.translate('Créer une partie :', 'Create a game :')
+            }}
+            <div class="row">
+
+                <!-- changeed here createGameMulti to openConfigGameDialog()-->
+                <button mat-button (click)="friendGames(_gameAccessType.ALL)">
+                    {{
+                    ls.translate('Tous', 'All')
+                    }}
+                </button>
+                <button mat-button (click)="friendGames(_gameAccessType.FRIENDS_ONLY)">
+                    {{
+                    ls.translate('Amis', 'Friends')
+                    }}
+                </button>
+                <button mat-button (click)="friendGames(_gameAccessType.FRIENDS_AND_THEIR_FRIENDS_ONLY)">
+                    {{
+                    ls.translate('Amis++', 'Friends++')
+                    }}
+                </button>
+            </div>
+        </div>
+        <div class="container">
+            {{
+            ls.translate('Rejoindre une partie :', 'Join a game :')
+            }}
+            <app-popup-select-lobby [lobbies]="this.lobbies"
+                (lobbySelected)="onLobbySelected($event)"></app-popup-select-lobby>
+        </div>
+        <div class="container">
+            {{
+            ls.translate('Observer une partie en cours :', 'Watch a game in progress :')
+            }}
+            <app-popup-select-lobby class="observer" [lobbies]="this.games"
+                (lobbySelected)="onGameSelected($event)"></app-popup-select-lobby>
+        </div>
+    </a>
+
+</div>
+<a *ngIf="page === 'Config'">
+    <div class="container">
+        <button mat-button (click)="openDialogDeleteCard()">{{ ls.translate('Supprimer', 'Delete') }}</button>
+        <!-- No more game stats, so no need -->
+        <!-- <button mat-button (click)="openDialogReinitCard()">Réinitialiser</button> -->
+    </div>
+</a>

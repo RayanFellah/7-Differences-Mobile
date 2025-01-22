@@ -1,0 +1,125 @@
+<div class="channelWidget" [ngClass]="{
+       'fullscreen': state === 'fullscreen', 
+       'chat-integrated': state === 'integrated-opened', 
+       'chat-toggle-button': state === 'integrated-closed',
+       'game-mode': state === 'game-mode'
+     }" *ngIf="!mws.poppedOut">
+    <div class="channelContainer" *ngIf="channelDisplay && enabled">
+        <div class="row">
+            <button mat-icon-button class="pop-button" (click)="mws.popOut()" *ngIf="!mws.isChild && mws.isElectron">
+                <mat-icon>open_in_new</mat-icon>
+            </button>
+            <button mat-icon-button *ngIf="!mws.isChild && !isGameMode" class="close-button" (click)="closeChat()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+        <mat-tab-group>
+            <mat-tab class="mat-tab-body-wrapper"
+                [label]="languageService.translate('Mes Canaux 👥', 'My Channels 👥')">
+                <div class="search-container">
+                    <input class="channelSearch" #channelName type="text"
+                        [placeholder]="languageService.translate('Ajouter un canal', 'Add channel')">
+                    <button class="reinitButton" mat-button (click)="createChannel(channelName.value)">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+                <div class="search-container">
+                    <input class="channelSearch" type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterChannels()"
+                        [placeholder]="languageService.translate('Rechercher un canal ... ' ,' Search for a channel ...')">
+                    <button class="reinitButton" mat-button
+                        (click)="resetSearch()">{{languageService.translate('Réinitialiser' , 'Reset')}}</button>
+                </div>
+                <mat-list class="channelList">
+                    <mat-list-item *ngFor="let channel of myFilteredChannelList; let i = index">
+                        <div class="row">
+                            <button mat-button class="enterChatButton" (click)="selectChannel(channel.name)"
+                                [ngClass]="{'game-channel': isGameChannel(channel.name)}">
+                                {{ isGameChannel(channel.name) ? 'Game Chat' : channel.name }} <span
+                                    *ngIf="isGameChannel(channel.name)">🎮</span> <span
+                                    *ngIf="channel.creatorName === currentUser!.username">👑</span>
+                            </button>
+                            <button mat-button (click)="toggleSubMenu(i)">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <div *ngIf="subMenuIndex === i">
+                                <button mat-button
+                                    *ngIf="currentUser!.username !== channel.creatorName  && channel.name !== 'general'"
+                                    (click)="leaveChannel(channel.name)">{{languageService.translate('Quitter',
+                                    'Exit')}}
+                                </button>
+                                <button mat-button *ngIf="currentUser!.username === channel.creatorName"
+                                    (click)="deleteChannel(channel.name)">
+                                    {{languageService.translate('Supprimer', 'Delete')}}
+                                </button>
+                                <button mat-button (click)="showPlayers()">
+                                    {{ languageService.translate(
+                                        'Joueurs',
+                                        'Players'
+                                    )}}
+                                </button>
+
+                                <p *ngIf=" channel.playersInChat.length === 1">
+                                    {{
+                                        languageService.translate(
+                                            'Aucun membre à part toi',
+                                            'No members other than you'
+                                        )
+                                    }}
+                                </p>
+                                <div *ngIf="showPlayerList">
+                                    <ng-container *ngFor="let player of channel.playersInChat">
+                                        <li class="row" *ngIf="player !== currentUser!.username">
+                                            <div class="playerName">{{ player }}</div>
+                                            <button mat-button (click)="toggleMute(player, channel.name)">
+                                                <mat-icon>
+                                                    {{channelService.isPlayerMuted(player,channel.name) ? 'volume_off' :
+                                                    'volume_down'}}
+                                                </mat-icon>
+                                            </button>
+                                        </li>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+            </mat-tab>
+            <mat-tab [label]="languageService.translate('Tous les Canaux 🌍', 'All Channels 🌍')">
+                <div class="search-container">
+                    <input class="channelSearch" type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterChannels()"
+                        [placeholder]="languageService.translate('Rechercher un canal ... ' ,' Search for a channel ...')">
+                    <button mat-button class="reinitButton"
+                        (click)="resetSearch()">{{languageService.translate('Réinitialiser' , 'Reset')}}</button>
+                </div>
+                <div class="channelList">
+                    <ng-container *ngFor="let channel of filteredChannelList">
+                        <div *ngIf="!isGameChannel(channel.name)">
+                            <div class="row">
+                                <div class="enterChatButton">
+                                    <div class="centeredText">
+                                        {{ channel.name }}
+                                        <span *ngIf="channel.creatorName === currentUser!.username"
+                                            title="{{languageService.translate('Vous êtes le propriétaire !', 'You re the owner!')}}">👑</span>
+                                    </div>
+                                </div>
+                                <button mat-button [disabled]="isChannelJoined(channel.name)"
+                                    (click)="joinChannel(channel.name)" class="joinButton"
+                                    [ngClass]="{'disabledButton': isChannelJoined(channel.name)}">
+                                    {{languageService.translate('Joindre' , 'Join')}}
+                                </button>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <div *ngIf="filteredChannelList.length === 0" style="color: grey; text-align: center;">
+                        <p>{{languageService.translate('Aucun canal trouvé ' , 'no channel found')}}</p>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <app-chat-widget *ngIf="selectedChannel" [channel]="selectedChannel" [username]="currentUser!.username"
+        (onCloseChat)="channelDisplay = true" [canSend]="false"></app-chat-widget>
+    <button mat-button class="chat-toggle-button" *ngIf="!enabled" (click)="openChat()">
+        <mat-icon>message</mat-icon>
+    </button>
+</div>

@@ -1,0 +1,41 @@
+i{
+    color: white;
+}
+
+#parent{
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction : column;
+    width: 55vw;
+    border-radius: 10px;
+    align-items: center;
+}
+
+#background, #sliderContainer{
+    display: flex;
+    flex-direction : row;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#tool{
+    padding-left: 50px;
+    flex-grow: 1 
+}
+#color{
+    flex-grow: 1 
+}
+app-toolbar-colors{
+    margin-left: auto;
+    margin-right: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+app-toolbar-tools{
+    margin-left: 0;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}

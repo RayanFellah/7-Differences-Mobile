@@ -1,0 +1,23 @@
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.login-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+
+h1 {
+    color: white;
+    font-size: 64px; 
+    text-align: center; 
+    width: 100%;
+    margin: 20px 0;
+}

@@ -1,0 +1,13 @@
+<div class="user-welcome">
+    <!-- <div> -->
+        <div class="flex-row">
+            <h2>Bonjour <span>{{ user!.username }}</span></h2>
+        </div>
+        <a [routerLink]="['/account-settings']">
+            <img src="{{ avatarPath }}" alt="avatar" class="user-avatar">
+        </a>
+        <div class="user-medals">
+            <img *ngFor="let medal of boughtMedals" [src]="medal.path" [alt]="medal.name" class="medal-icon">
+        </div>
+    <!-- </div> -->
+</div>

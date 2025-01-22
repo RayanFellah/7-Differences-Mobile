@@ -1,0 +1,39 @@
+<div class="container">
+    <h2 class="configuration-title">Historique des parties</h2>
+    <div class="games-container">
+        <table>
+            <tr>
+                <th>Date début</th>
+                <th>Durée</th>
+                <th>Mode de Jeu</th>
+                <th>Joueur 1</th>
+                <th>Joueur 2</th>
+            </tr>
+            <tbody>
+                <tr *ngFor="let item of history">
+                    <td>{{item.startDate | date:'dd/MM/yy hh:mm:ss a'}}</td>
+                    <td>{{(item.duration / 1000) | number: '1.2-2'}} s</td>
+                    <td>{{item.gameMode}}</td>
+                    <td *ngIf="item.gameMode=='Classique solo'" [ngClass]="{'crossed-out': item.quit}">{{item.player1}}
+                    </td>
+                    <td *ngIf="item.gameMode=='Classique solo'"></td>
+
+                    <td *ngIf="item.gameMode=='Classique 1v1'"><b>{{item.player1}}</b></td>
+                    <td *ngIf="item.gameMode=='Classique 1v1'" [ngClass]="{'crossed-out': item.quit}">{{item.player2}}
+                    </td>
+
+                    <td *ngIf="item.gameMode=='Temps limité'" [ngClass]="{'crossed-out': item.quit}">{{item.player1}}
+                    </td>
+                    <td *ngIf="item.gameMode=='Temps limité'"></td>
+
+                    <td *ngIf="item.gameMode=='Temps limité coop'" [ngClass]="{'crossed-out': item.quit}">
+                        {{item.player1}}</td>
+                    <td *ngIf="item.gameMode=='Temps limité coop'" [ngClass]="{'crossed-out': item.quitCoop}">
+                        {{item.player2}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <app-custom-button title="Effacer l'historique" iconClass="fas fa-trash"
+        (click)="openDialogConfirmResetHistory()"></app-custom-button>
+</div>

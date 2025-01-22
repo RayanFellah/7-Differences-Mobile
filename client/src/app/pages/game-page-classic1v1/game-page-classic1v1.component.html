@@ -1,0 +1,113 @@
+<div class="container">
+    <div class="game">
+        <button mat-button *ngIf="router.url !== '/replay'" class="scaling"
+            (click)="wantToQuit = true">
+            {{ ls.translate('Abandonner', 'Quit') }}
+        </button>
+      
+        <!-- <app-counter class="scaling" #counter [name]="username"></app-counter>
+
+        <app-counter class="scaling" #counter2 [name]="username2"></app-counter> -->
+        
+    
+     <section class="play-area-container">
+
+        <div class="play-area">
+
+
+        <app-counter class="scaling" #counter [name]="username"></app-counter>
+
+        <app-counter class="scaling" #counter2 [name]="username2"></app-counter>
+        
+
+
+            <div class="play-zone">
+                <app-observer-area id="canvas3" #canvas3 [isObserver]="this.isObserver"
+                    [observerColor]="this.colorObserver" [observe1]="this.ischecked1" [observe2]="this.ischecked2"
+                    [observe3]="this.ischecked3" [observe4]="this.ischecked4"
+                    [playerNumber]="selectedPlayer"></app-observer-area>
+
+
+                <app-play-area id="pa1" tabindex="0" [url]="link1" [diff]="this.diff" [isObserver]="this.isObserver"
+                     #leftPlayArea></app-play-area>
+            </div>
+        </div>
+
+        <div class="play-area-middle">
+            <app-logo></app-logo>
+            <div class="play-area-stats">
+                <app-game-info></app-game-info>
+                <app-counter #counter [name]="username"></app-counter>
+            <app-chronometre class="scaling" #timer (timeUp)="endGame('time',false)"></app-chronometre>
+
+
+            <div class="obs">
+                <app-game-info></app-game-info>    
+                    <h1>
+                    {{ ls.translate('Nombre d\'observateurs:', 'Number of observers:') }} {{this.nbOfObservers}}
+                    </h1>
+            </div>
+
+        </div>
+
+
+
+            <div class="popup-quit">
+                <app-popup-quit *ngIf="wantToQuit" [gameEnded]="false" [message]="message" [buttonTitle]="buttonTitle"
+                    (wantToQuitChange)="onContinue($event)"></app-popup-quit>
+            </div>
+            <div *ngIf="isObserver" class="observe">
+                <h1> interact with player</h1>
+                <div>
+                    <input type="radio" id="player1" name="player" [(ngModel)]="selectedPlayer" value="1">
+                    <label for="player1">Send to player1</label>
+                </div>
+                <div>
+                    <input type="radio" id="player2" name="player" [(ngModel)]="selectedPlayer" value="2">
+                    <label for="player2">Send to player2</label>
+                </div>
+                <div>
+                    <input type="radio" id="player3" name="player" [(ngModel)]="selectedPlayer" value="3">
+                    <label for="player3">Send to player3</label>
+                </div>
+                <div>
+                    <input type="radio" id="player4" name="player" [(ngModel)]="selectedPlayer" value="4">
+                    <label for="player4">Send to player4</label>
+                </div>
+                <div>
+                    <input type="radio" id="player4" name="player" [(ngModel)]="selectedPlayer" value="5">
+                    <label for="player4">Send to All</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="play-area">
+            <div class="usernameHolder"> </div>
+        <app-counter class="scaling" #counter3 [name]="username3"></app-counter>
+    
+        <app-counter class="scaling" #counter4 [name]="username4"></app-counter>
+
+            <div class="play-zone">
+                <app-observer-area id="canvas4" #canvas4 [isObserver]="this.isObserver"
+                    [observerColor]="this.colorObserver" [observe1]="this.ischecked1" [observe2]="this.ischecked2"
+                    [observe3]="this.ischecked3" [observe4]="this.ischecked4"
+                    [playerNumber]="selectedPlayer"></app-observer-area>
+
+
+                <app-play-area id="pa2" tabindex="0" [url]="link2" [diff]="this.diff" [isObserver]="this.isObserver"
+                    #rightPlayArea></app-play-area>
+            </div>
+        </div>
+    </section>
+    <div class="canvas-container">
+        <canvas id="canvas1" #canvas1 width="640" height="480"></canvas>
+        <canvas id="canvas2" #canvas2 width="640" height="480"></canvas>
+    </div>
+</div>
+</div>
+<!-- <div class="channel-widget-container">
+        <app-channel-widget #channels></app-channel-widget>
+    </div> -->
+<app-popup-quit *ngIf="gameEnded" [gameEnded]="true" [message]="message" [isSolo]="false"></app-popup-quit>
+<app-channel-widget class="zied"></app-channel-widget>
+

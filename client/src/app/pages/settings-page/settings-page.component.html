@@ -1,0 +1,80 @@
+<app-top-bar [title]="languageService.translate('Paramètres de compte', 'User settings')"></app-top-bar>
+
+<div class="container">
+    <mat-accordion>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                {{ languageService.translate('Statistiques', 'Statistics') }}
+            </mat-expansion-panel-header>
+            <app-stats></app-stats>
+        </mat-expansion-panel>
+
+        <app-profile-edit></app-profile-edit>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                {{ languageService.translate('Historique de connexion', 'Connection history') }}
+            </mat-expansion-panel-header>
+            <app-connection-history-page></app-connection-history-page>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                {{ languageService.translate('Historique de parties', 'Game history') }}
+            </mat-expansion-panel-header>
+            <app-game-history-page></app-game-history-page>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                {{ languageService.translate('Visionner un enregistrement', 'Watch a replay') }}
+            </mat-expansion-panel-header>
+            <app-replay-history></app-replay-history>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                {{
+                languageService.translate(
+                'Choix de sons spéciaux',
+                'Special sounds selection'
+                )
+                }}
+            </mat-expansion-panel-header>
+            <app-sounds-selector></app-sounds-selector>
+        </mat-expansion-panel>
+
+        <button mat-button class="toggle-buttons" (click)="toggleTheme()">
+            <div class="button-content">
+                <span>{{ languageService.translate('Thème de l\'application', 'Application theme') }}</span>
+                <span>
+                    <label class="switch">
+                        <input type="checkbox" [checked]="themeService.isThemeDark" (change)="toggleTheme()" />
+                        <span class="slider round">
+                            <span class="icon">🌑</span>
+                            <span class="icon rightIcon">🔆</span>
+                        </span>
+                    </label>
+                </span>
+            </div>
+        </button>
+        <button mat-button class="toggle-buttons" (click)="toggleLanguage()">
+            <div class="button-content">
+                <span>{{ languageService.translate('Langue de l\'application', 'Application language') }}</span>
+                <span>
+                    <label class="switch">
+                        <input type="checkbox" [checked]="languageService.isLanguageFrench"
+                            (change)="toggleLanguage()" />
+                        <span class="slider round">
+                            <span>fr</span>
+                            <span>en</span>
+                        </span>
+                    </label>
+                </span>
+            </div>
+        </button>
+    </mat-accordion>
+
+</div>
+<app-channel-widget></app-channel-widget>

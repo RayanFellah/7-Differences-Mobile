@@ -1,0 +1,172 @@
+<<<<<<< HEAD
+{"users":[{"username":"rayan","email":"r@gmail.com","password":"$2b$10$mW0HTR0O6nMGWttteg8T5ej7H1Oq6ctm6EaNMfXH46UyE8/KRPv.."},{"username":"rayan2","email":"r@gmail.com","password":"$2b$10$KlSoMEf5hUxhAL1K4DNLiO5mX6ZSkW9IYwLcpN942WsLNFJqfLaga"},{"username":"b","email":"b@fe.co","password":"$2b$10$cPRXUuse0uO5v9LBY2YnNu/WRBwGomqde6JFNYbQ2JTM6TsScMjIq"},{"username":"moha","email":"h@d.bh","password":"$2b$10$Op8HeBzKc9URLb4AEtoaee7kkcEKOsxahsYrwuJAHUjUMpy00QBv."},{"username":"yo","email":"h@sd.bg","password":"$2b$10$2AGgWwsFJetCwBdWfyC5/uXui8pSbq.HfaX2ci7SbuRd3hUDjXt3C"},{"username":"yoho","email":"yh@gmail.com","password":"$2b$10$W6P9zFJs59T88sRCMUkIGOTBTUjg9EHsNfSd6xU3gXWQ0iR0nyq.i"},{"username":"hous","email":"bad@gmail.com","password":"$2b$10$lXJQ2L6J8EHm9JQy9Mtx1.kEtojyn7jHCxusSrCn/wXqCkSrSb4mq"},{"username":"aaa","email":"aaaa@sd.kl","password":"$2b$10$utonnrMyvLYDWygIGJeaouu9G5I7R66m9zTAjIOy1DYVot1isLTDG"},{"username":"pala","email":"p@g.com","password":"$2b$10$wN9BqqdU75Q3.PElskZMje3QwIWTE38RirT9Wu9EP5NiLRpvGXjCi"},{"username":"salam","email":"s@g.com","password":"$2b$10$VuvCItpielKK4QAeiQrUDuzaC8owZlKSj7lPNt8Q93qQX6GlBToTu"}]}
+=======
+{
+  "users": [
+    {
+      "username": "rayan",
+      "email": "rayan@gmail.com",
+      "password": "$2b$10$yJVUGtfU4Lm1LRjsXIdfCeLs94pM.ZZbBXXmGTogZjrbLZO2MuV9y",
+      "avatar": "avatar1.png",
+      "connectionHistory": [
+        {
+          "date": "2024-02-28T04:05:02.102Z",
+          "action": "Connexion"
+        },
+        {
+          "date": "2024-02-28T04:05:36.120Z",
+          "action": "Connexion"
+        },
+        {
+          "date": "2024-02-28T04:05:51.845Z",
+          "action": "Déconnexion"
+        },
+        {
+          "date": "2024-02-28T04:05:55.643Z",
+          "action": "Connexion"
+        }
+      ],
+      "gameStatistics": {
+        "numberGamesPlayed": 2,
+        "numberGamesWon": 1,
+        "averageDifferencePerGame": 1,
+        "averageTimePerGame": 7400.5
+      }
+    },
+    {
+      "username": "rayan2",
+      "email": "rayan2@hh.com",
+      "password": "$2b$10$PqUH80WzTh/i6VJBduUsKuPsdAaD9SMbGTcelxc2IsxG8l/t2lHPq",
+      "avatar": "avatar2.png",
+      "connectionHistory": [
+        {
+          "date": "2024-02-28T04:06:26.501Z",
+          "action": "Connexion"
+        },
+        {
+          "date": "2024-02-28T04:06:36.415Z",
+          "action": "Connexion"
+        }
+      ],
+      "gameStatistics": {
+        "numberGamesPlayed": 2,
+        "numberGamesWon": 1,
+        "averageDifferencePerGame": 2,
+        "averageTimePerGame": 7398
+      }
+    },
+    {
+      "username": "rayan3",
+      "email": "ra@hh.com",
+      "password": "$2b$10$acNKtscPcWiBY/NYy3UmOeNi0brJtTnWx314q/0emSwcX2sAlE5U6",
+      "avatar": "avatar3.png",
+      "connectionHistory": [
+        {
+          "date": "2024-02-28T04:14:30.318Z",
+          "action": "Connexion"
+        },
+        {
+          "date": "2024-02-28T04:19:58.133Z",
+          "action": "Connexion"
+        },
+        {
+          "date": "2024-02-28T04:21:20.412Z",
+          "action": "Déconnexion"
+        }
+      ]
+    },
+    {
+      "username": "rayan4",
+      "email": "tetet@gmail.com",
+      "password": "$2b$10$65ds4eCUkFZ9g1mOPAV2w.grOtxpAv7wiMjEswfhwA0DJSRP749LC",
+      "avatar": "avatar1.png",
+      "connectionHistory": [
+        {
+          "date": "2024-02-28T04:23:13.725Z",
+          "action": "Connexion"
+        }
+      ]
+    },
+    {
+      "username": "rayan5",
+      "email": "Test1234@hhh.com",
+      "password": "$2b$10$C4wRFkEkwBh2oOs/mg9DOOELFyqP0RULrwfhi0rCIO86MsqKpeiFu",
+      "avatar": "avatar2.png",
+      "connectionHistory": [
+        {
+          "date": "2024-02-28T04:25:11.269Z",
+          "action": "Connexion"
+        }
+      ]
+    },
+    {
+      "username": "rayan6",
+      "email": "Test@gg.com",
+      "password": "$2b$10$Yv6jcYsN5cNTwgB4.PQ3peZMy5qFgz4jykW6NhK5Wh6alLI/xU.HC",
+      "avatar": "avatar2.png",
+      "connectionHistory": [
+        {
+          "date": "2024-02-28T04:28:48.804Z",
+          "action": "Connexion"
+        },
+        {
+          "date": "2024-02-28T04:29:00.193Z",
+          "action": "Connexion"
+        },
+        {
+          "date": "2024-02-28T04:30:30.845Z",
+          "action": "Déconnexion"
+        },
+        {
+          "date": "2024-02-28T04:35:48.880Z",
+          "action": "Déconnexion"
+        }
+      ]
+    },
+    {
+      "username": "rayan10",
+      "email": "2020@hh.com",
+      "password": "$2b$10$Mg06DxDbeaRHFabMHt8ZVuNxeaQjiIesdADY3nSWvE3kMk5pip5ay",
+      "avatar": "avatar1.png",
+      "connectionHistory": [
+        {
+          "date": "2024-02-28T04:33:07.660Z",
+          "action": "Connexion"
+        },
+        {
+          "date": "2024-02-28T04:36:48.639Z",
+          "action": "Connexion"
+        },
+        {
+          "date": "2024-02-28T04:37:15.819Z",
+          "action": "Déconnexion"
+        }
+      ]
+    },
+    {
+      "username": "rayan12",
+      "email": "Test1234@hh.com",
+      "password": "$2b$10$YdiWE6gJhJJqQgbUz0G2c.bt6N9D1A6TaM3JT6xYExjjzvhudpUle",
+      "avatar": "avatar2.png",
+      "connectionHistory": [
+        {
+          "date": "2024-02-28T04:39:19.584Z",
+          "action": "Connexion"
+        },
+        {
+          "date": "2024-02-28T04:39:24.348Z",
+          "action": "Déconnexion"
+        },
+        {
+          "date": "2024-02-28T04:39:29.974Z",
+          "action": "Connexion"
+        },
+        {
+          "date": "2024-02-28T04:39:37.620Z",
+          "action": "Déconnexion"
+        }
+      ]
+    }
+  ]
+}
+>>>>>>> 23ea5635a894060559e91e375fb3c88b0e6ddc8a

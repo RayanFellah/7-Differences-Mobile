@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Configuration de Partie</h1>
+<div mat-dialog-content>
+  <mat-form-field class="full-width">
+    <mat-label>Temps de partie</mat-label>
+    <mat-slider min="60" max="150" step="1" [(ngModel)]="gameTime"></mat-slider>
+  </mat-form-field>
+  <p>Temps choisi: {{ gameTime }} secondes</p>
+
+  <mat-form-field class="full-width">
+    <mat-label>Temps de récompense</mat-label>
+    <mat-slider min="60" max="150" step="1" [(ngModel)]="rewardTime"></mat-slider>
+  </mat-form-field>
+  <p>Temps choisi: {{ rewardTime }} secondes</p>
+
+  <mat-form-field class="full-width">
+    <mat-label>Temps de pénalité</mat-label>
+    <mat-slider min="1" max="15" step="1" [(ngModel)]="penaltyTime"></mat-slider>
+  </mat-form-field>
+  <p>Temps choisi: {{ penaltyTime }} secondes</p>
+
+  <mat-form-field class="full-width">
+    <mat-label>Cheat Mode</mat-label>
+    <mat-slide-toggle [(ngModel)]="cheatMode">Activer</mat-slide-toggle>
+  </mat-form-field>
+  <p>Cheat Mode: {{ cheatMode ? 'Activé' : 'Désactivé' }}</p>
+</div>
+
+<div mat-dialog-actions align ="end">
+  <button mat-button [mat-dialog-close]="{gameTime: gameTime, rewardTime: rewardTime, penaltyTime: penaltyTime}" cdkFocusInitial>OK</button>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+</div>

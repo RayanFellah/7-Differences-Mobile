@@ -1,0 +1,34 @@
+<table>
+    <tr>
+        <td>{{ ls.translate('Nombre de parties jouées', 'Number of games played') }} :</td>
+        <td>{{ userStats.numberGamesPlayed }}</td>
+    </tr>
+    <tr>
+        <td>
+            {{
+            ls.translate('Nombre de parties gagnées', 'Number of games won')
+            }} :
+        </td>
+        <td>{{ userStats.numberGamesWon }}</td>
+    </tr>
+    <tr>
+        <td>
+            {{
+            ls.translate(
+            'Moyenne de différences trouvées par partie',
+            'Average found differences per game')
+            }} :
+        </td>
+        <td>{{ userStats.averageDifferencePerGame }}</td>
+    </tr>
+    <tr>
+        <td>
+            {{
+            ls.translate(
+            'Durée moyenne par partie (secondes)',
+            'Average game duration (seconds)')
+            }} :
+        </td>
+        <td>{{ userStats.averageTimePerGame | number: '1.0-0' }}</td>
+    </tr>
+</table>

@@ -1,0 +1,30 @@
+<section class="items-section">
+    <div class="title-container">
+        <h2>
+        {{ ls.translate('Sons', 'Sounds')}}    
+        </h2>
+        <div class="incitative-text">
+            {{
+            ls.translate('Améliorez votre expérience de jeu avec ces sons exclusifs !', 'Improve your gaming experience with these exclusive sounds!')
+            }}
+        </div>
+    </div>
+    <div class="item" *ngFor="let sound of boughtSounds">
+        <div class="flex-row">
+            <div class="sound-name">{{ sound.name }}</div>
+            <button mat-button (click)="playSound(sound)">
+                <mat-icon>play_arrow</mat-icon>
+            </button>
+        </div>
+        <button mat-button (click)="useSpecialSound(sound)" *ngIf="!isUsed(sound.name)">
+            {{
+            ls.translate('Utiliser ce son spécial', 'Use this special sound')
+            }}
+        </button>
+        <button mat-button (click)="unUseSpecialSound(sound)" *ngIf="isUsed(sound.name)">
+            {{
+            ls.translate('Utiliser le son par défaut', 'Use the default sound')
+            }}
+        </button>
+    </div>
+</section>

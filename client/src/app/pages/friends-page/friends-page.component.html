@@ -1,0 +1,124 @@
+<app-top-bar [title]="ls.translate('Gestion d\'amis', 'Friends management')">
+    <div class="search-container">
+        <button class="search-button">
+            <span class="material-icons">search</span>
+        </button>
+        <input type="text" class="search-input" [placeholder]="ls.translate('Recherche d\'amis', 'Search friends')"
+            [(ngModel)]="searchTerm" (input)="onSearchChange(searchTerm)">
+    </div>
+</app-top-bar>
+
+
+<div class="main-content">
+    <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="users-section">
+        <h3 class="name fixed-center-h3">
+            {{
+            ls.translate('Tous les utilisateurs', 'All users')
+            }}
+        </h3>
+        <div *ngFor="let u of filteredUsers" class="user" [class.selected-user]="u.username === selectedUserUsername"
+            (click)="selectUser(u.username ?? '', u.id!)">
+            <div class="user-avatar flex-row">
+                <img [src]="avatarService.getAvatarPath(u.avatar!)" class="avatar">
+                <span class="name">{{ u.username ?? '' }}</span>
+            </div>
+            <button mat-button [disabled]="true" *ngIf="user.username === u.username">{{
+                ls.translate('Moi', 'Me')
+                }}</button>
+            <button mat-button *ngIf="isFriend(u.id!) && user.username !== u.username" (click)="deleteFriend(u.id!)">
+                {{
+                ls.translate('Retirer', 'Unfriend')
+                }}
+            </button>
+            <button mat-button *ngIf="isReceivedPendingRequest(u.id!) && user.username !== u.username"
+                (click)="acceptFriendRequest(u.id!)">
+                {{ ls.translate('Accepter', 'Accept') }}
+            </button>
+            <button mat-button *ngIf="isSentRequest(u.id!) && user.username !== u.username"
+                (click)="revokeFriendRequest(u.id!)">
+                {{ ls.translate('Retirer la demande', 'Cancel request') }}
+            </button>
+            <button mat-button
+                *ngIf="!isFriend(u.id!) && !isReceivedPendingRequest(u.id!) && !isSentRequest(u.id!) && user.username !== u.username"
+                (click)="sendFriendRequest(u.id!)">
+                {{ ls.translate('Ajouter', 'Add') }}
+            </button>
+        </div>
+    </cdk-virtual-scroll-viewport>
+
+    <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="users-section">
+        <h3 class="name fixed-center-h3" *ngIf="selectedUserUsername">
+            {{ ls.translate('Amis de', 'Friends of') }} {{selectedUserUsername}}
+        </h3>
+        <div *ngIf="selectedUserFriends.length > 0" class="friends-list-section">
+            <div *ngFor="let friend of selectedUserFriends" class="user">
+                <div class="user-avatar flex-row">
+                    <img [src]="avatarService.getAvatarPath(friend.avatar!)" class="avatar">
+                    <span class="name">{{ friend.username ?? '' }}</span>
+                </div>
+                <button mat-button *ngIf="isFriend(friend.id!) && user.username !== friend.username"
+                    (click)="deleteFriend(friend.id!)">
+                    {{ ls.translate('Retirer', 'Unfriend') }}
+                </button>
+                <button mat-button *ngIf="isReceivedPendingRequest(friend.id!) && user.username !== friend.username"
+                    (click)="acceptFriendRequest(friend.id!)">
+
+                    {{ ls.translate('Accepter', 'Accept') }}
+                </button>
+                <button mat-button *ngIf="isSentRequest(friend.id!) && user.username !== friend.username"
+                    (click)="revokeFriendRequest(friend.id!)">
+                    {{ ls.translate('Retirer la demande', 'Cancel request') }}
+                </button>
+                <button mat-button
+                    *ngIf="!isFriend(friend.id!) && !isReceivedPendingRequest(friend.id!) && !isSentRequest(friend.id!) && user.username !== friend.username"
+                    (click)="sendFriendRequest(friend.id!)">
+                    {{ ls.translate('Ajouter', 'Add') }}
+                </button>
+                <button mat-button [disabled]="true" *ngIf="user.username === friend.username">{{
+                    ls.translate('Moi', 'Me')
+                    }}</button>
+            </div>
+        </div>
+        <div *ngIf="selectedUserFriends.length === 0" class="friends-list-section">
+            <h2 class="name">
+                ({{
+                ls.translate('Aucun ami à afficher', 'No friends to display')
+                }})
+            </h2>
+        </div>
+    </cdk-virtual-scroll-viewport>
+
+    <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="users-section">
+        <h3 class="name fixed-center-h3">
+            {{ ls.translate('Demandes d\'amis reçues', 'Received friend requests') }}
+        </h3>
+        <div class="friends-list-section" *ngIf="receivedPendingRequestsUsers.length > 0">
+            <div *ngFor="let request of receivedPendingRequestsUsers" class="user">
+                <div class="user-avatar flex-row">
+                    <img [src]="avatarService.getAvatarPath(request.avatar!)" class="avatar">
+                    <span class="name">{{ request.username ?? '' }}</span>
+                </div>
+                <div class="flex-row">
+                    <button mat-button (click)="acceptFriendRequest(request.id!)">
+
+                        {{ ls.translate('Accepter', 'Accept') }}
+                    </button>
+                    <button mat-button (click)="rejectFriendRequest(request.id!)"
+                    >
+                        {{ ls.translate('Refuser', 'Reject') }}
+
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="requests-section" *ngIf="receivedPendingRequestsUsers.length === 0">
+            <h2 class="name">
+                (
+                {{ ls.translate('Aucune demande d\'amitié à afficher', 'No friend requests to display') }}
+                )
+            </h2>
+        </div>
+    </cdk-virtual-scroll-viewport>
+</div>
+<app-channel-widget></app-channel-widget>

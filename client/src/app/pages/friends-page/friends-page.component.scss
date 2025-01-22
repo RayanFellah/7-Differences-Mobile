@@ -1,0 +1,196 @@
+.search-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: var(--background-color);
+  /* Couleur d'arrière-plan ajustée */
+  padding: 5px 10px;
+  height: 40px;
+}
+
+.search-input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding-left: 15px;
+  font-size: 16px;
+  width: 100%;
+  color: var(--text-color);
+  /* Couleur de texte ajustée */
+}
+
+.search-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  /* Couleur du bouton ajustée */
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Assurer que l'icône de Material est de la bonne taille et couleur */
+.search-button .material-icons {
+  font-size: 24px;
+  /* Taille de l'icône */
+}
+
+/* Style au focus pour l'input */
+.search-input:focus {
+  border-color: #4a90e2;
+}
+
+/* Style au survol pour le bouton */
+.search-button:hover {
+  color: #4a90e2;
+  /* Changement de couleur au survol */
+}
+
+//   .avatar {
+//     width: 40px;  // Adjust as needed
+//     height: 40px; // Adjust as needed
+//   }
+
+//   .name {
+//     color: white; 
+//   }
+
+//   .container {
+//     display: flex;
+//     flex-direction: row;
+//   }
+
+//   .flex-row {
+//     display: flex;
+//     flex-direction: row;
+//   }
+
+/* Style the scrollbar to be thin and transparent by default */
+.users-section::-webkit-scrollbar {
+  width: 4px; /* Thin width */
+  opacity: 0; /* Make transparent */
+}
+.users-section::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track */
+}
+
+.users-section::-webkit-scrollbar-thumb {
+  background: transparent; /* Transparent thumb */
+}
+
+/* Style the scrollbar to be visible on hover */
+.users-section:hover::-webkit-scrollbar-thumb {
+  background: #888; /* Visible color on hover */
+}
+
+.fixed-center-h3 {
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 0; /* Adjust this value if you have a top navbar */
+  z-index: 1000; /* Ensure it stays on top of other content */
+  text-align: center; /* Center the text */
+  margin: 0; /* Remove default margin */
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+h2{
+    font-size: 16px;
+    text-align: center;
+}
+
+// .custom-button {
+//   height: 40px;
+//   background-color: #1d4e86; /* Couleur bleu-vert */
+//   color: white; /* Couleur du texte */
+//   padding: 0px 30px; /* Ajustez la hauteur avec le padding vertical et la largeur avec le padding horizontal */
+//   border: none; /* Supprimer la bordure standard */
+//   border-radius: 20px; /* Coins plus arrondis */
+//   font-size: 16px; /* Taille du texte */
+//   cursor: pointer; /* Change le curseur en une main pour indiquer que c'est cliquable */
+//   transition: background-color 0.3s ease; /* Transition douce pour le survol */
+// }
+
+// .custom-button:hover {
+//   background-color: #2b8a6d; /* Légère variation de la couleur au survol */
+// }
+
+// .back-button {
+//   font-size: 20px;
+//   background: none;
+//   border: none;
+//   cursor: pointer;
+//   margin-right: 20px;
+//   color: white;
+// }
+
+
+
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(100% - 50px);
+
+}
+
+.users-section,
+.friends-list-section,
+.requests-section {
+  flex: 1;
+  padding: 10px;
+  margin: 0 10px;
+}
+
+.user,
+.name,
+.action-button {
+  display: block;
+  margin: 5px 0;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 25px;
+  margin-right: 25px;
+  height: 65px;
+}
+
+
+.selected-user {
+  background-color: #808282;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-button:disabled {
+  background-color: #cccccc; /* Couleur pour le bouton désactivé */
+  color: #666666; /* Couleur du texte pour le bouton désactivé */
+  cursor: not-allowed; /* Change le curseur pour indiquer qu'il n'est pas cliquable */
+}

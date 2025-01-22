@@ -1,0 +1,84 @@
+<app-top-bar [title]="ls.translate('Boutique', 'Store')">
+    <button mat-button (click)="openFortuneWheel()">
+        {{ ls.translate('Faites tourner roue de fortune contre 5 dinars', 'Swing the fortune wheel for 5 dinars') }}
+    </button>
+    <span class="balance-description">
+        {{ ls.translate('Solde actuel : ', 'Current balance : ') }}
+    </span>
+    <span class="user-balance"> {{ userCurrentDinars }} dinars</span>
+</app-top-bar>
+
+<section class="items-section">
+<div class="title-container">
+    <h2>
+        {{ ls.translate('Médailles', 'Medals') }}
+    </h2>
+    <div class="incitative-text">
+        {{ ls.translate('Améliorez votre expérience de jeu avec ces médailles exclusives !', 'Improve your gaming experience with these exclusive medals!') }}
+    </div>
+</div>
+<div class="item" *ngFor="let medal of medals">
+    <img [src]="medal.path" [alt]="medal.name">
+    <div style="color: white;">{{ medal.name }}</div>
+    <div class="description" *ngIf="hoveredItem === medal">{{ medal.description }} dsajdasdjakj</div>
+    <div class="purchase-area" *ngIf="isOwned(medal.name);">
+        <div class="owned-icon">
+            <mat-icon>check_circle</mat-icon>
+            {{ ls.translate('Acheté', 'Owned') }}
+        </div>
+    </div>
+    <button mat-button (click)="buyMedal(medal)" *ngIf="!isOwned(medal.name)">{{ medal.price }}
+        dinars</button>
+</div>
+</section>
+
+<section class="items-section">
+<div class="title-container">
+    <h2>Avatars</h2>
+    <div class="incitative-text">
+        {{ ls.translate('Achetez un avatar spécial pour personnaliser votre profil !', 'Buy a special avatar to customize your profile!') }}
+    </div>
+</div>
+<div class="item" *ngFor="let avatar of avatarsNames; index as i">
+    <img [src]="avatarService.getAvatarPath(avatar)" [alt]="avatar">
+    <div style="color: white;"> Avatar {{i + 1}}</div>
+    <div class="purchase-area" *ngIf="isOwned(avatar);">
+        <div class="owned-icon">
+            <mat-icon>check_circle</mat-icon>
+            {{ ls.translate('Acheté', 'Owned') }}
+        </div>
+    </div>
+    <button mat-button (click)="buyAvatar(avatar)" *ngIf="!isOwned(avatar)">{{ defaultAvatarPrice }}
+        dinars</button>
+</div>
+</section>
+
+<section class="items-section">
+<div class="title-container">
+    <h2>
+        {{ ls.translate('Sons', 'Sounds') }}
+    </h2>
+    <div class="incitative-text">
+        {{ ls.translate('Améliorez votre expérience de jeu avec ces sons exclusifs !', 'Improve your gaming experience with these exclusive sounds!') }}
+    </div>
+</div>
+<div class="item" *ngFor="let sound of sounds">
+    <div class="flex-row">
+        <div class="sound-name">{{ sound.name }}</div>
+        <button mat-button (click)="playSound(sound)">
+            <mat-icon>play_arrow</mat-icon>
+        </button>
+    </div>
+    <div class="purchase-area" *ngIf="isOwned(sound.name);">
+        <div class="owned-icon">
+            <mat-icon>check_circle</mat-icon>
+            {{  ls.translate('Acheté', 'Owned') }}
+        </div>
+    </div>
+    <button mat-button (click)="buySound(sound)" *ngIf="!isOwned(sound.name)">{{ sound.price }}
+        dinars</button>
+</div>
+</section>
+  <app-channel-widget></app-channel-widget>
+  
+    

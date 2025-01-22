@@ -1,0 +1,19 @@
+<div class="background">
+    <div class="gameEnded">
+        <p>{{ message }}</p>
+
+        <button mat-button (click)="closePopup(true)">
+            {{ ls.translate('Retour au menu principal', 'Back to main menu')}}
+        </button>
+
+        <button mat-button *ngIf="!gameEnded" (click)="closePopup(false)">
+        {{ ls.translate('non', 'no') }}
+        </button>
+
+        <button mat-button *ngIf="gameEnded && (router.url==='/game'||router.url==='/game1v1')"
+            routerLink="/replay">
+            {{ ls.translate('Reprise Vidéo', 'Replay Video') }}
+        </button>
+
+    </div>
+</div>

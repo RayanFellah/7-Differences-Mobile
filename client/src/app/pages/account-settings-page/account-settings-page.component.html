@@ -1,0 +1,31 @@
+
+<div class="top-bar">
+
+    <app-custom-button routerLink="/home" [title]="languageService.isLanguageFrench ? 'Menu Principal' : 'Main Menu'" iconClass="fas fa-home"></app-custom-button>
+    <app-custom-button routerLink="/account-settings/profile" [title]="languageService.isLanguageFrench ? 'Réglages utilisateur' : 'User settings'"
+        iconClass="fas fa-palette"></app-custom-button>
+    <app-custom-button routerLink="/account-settings/game-history" [title]="languageService.isLanguageFrench ? 'Historique de parties' : 'Game history'"
+        iconClass="fas fa-calculator"></app-custom-button>
+    <app-custom-button routerLink="/account-settings/connection-history" [title]="languageService.isLanguageFrench ? 'Historique de connexion' : 'Connection history'"
+        iconClass="fas fa-list"></app-custom-button>
+    
+    <!-- Theme toggle -->
+    <label class="switch">
+        <input type="checkbox" (change)="toggleTheme()" [checked]="themeService.isThemeDark">
+        <span class="slider round">
+            <span class="icon">🌑</span>
+            <span class="icon rightIcon">🔆</span>
+        </span>
+    </label>
+
+    <!-- Language toggle -->    
+    <label class="switch">
+        <input type="checkbox" (change)="toggleLanguage()" [checked]="languageService.isLanguageFrench">
+        <span class="slider round">
+            <span class="icon">fr</span>
+            <span class="icon rightIcon">en</span>
+        </span>
+    </label>
+</div>
+<router-outlet></router-outlet>
+<app-channel-widget></app-channel-widget>

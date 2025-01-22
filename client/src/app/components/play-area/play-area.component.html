@@ -1,0 +1,10 @@
+<div id="grid-container">
+    <canvas id="canvas" #gridCanvas (click)="clickHandle($event)" [attr.width]="width" [attr.height]="height"
+        [style.background-image]="url"></canvas>
+</div>
+<div class="clueZone">
+    <div #clueZone id="clueZone"></div>
+</div>
+<div class="error">
+    <app-popup-error></app-popup-error>
+</div>

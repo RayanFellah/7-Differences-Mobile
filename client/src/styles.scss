@@ -1,0 +1,129 @@
+@use '@angular/material' as mat;
+@include mat.core();
+html,
+body {
+    height: 100%;
+}
+
+:root {
+    --background-image: url('assets/background.png');
+    --btn-background: rgb(38, 86, 111, 1);
+    --background-color: rgb(31, 68, 87);
+    --btn-color: white;
+    --text-color: white;
+}
+
+body[theme='light'] {
+    --background-image: url('assets/background_light.png');
+    --btn-background: rgb(229, 236, 237);
+    --background-color: white;
+    --btn-color: rgb(19, 85, 138, 1);
+    --text-color: rgb(19, 85, 138, 1);
+}
+
+body {
+    margin: 0;
+    background-image: var(--background-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+mat-dialog-container {
+    padding: 10px;
+}
+
+button[mat-button] {
+    background-color: var(--btn-background);
+    color: var(--btn-color);
+    border-radius: 25px;
+    margin: 10px;
+}
+
+button[mat-button][theme='light'] {
+    background-color: var(--btn-background);
+    color: var(--btn-color);
+}
+
+button[mat-button][theme='dark'] {
+    background-color: var(--btn-background);
+    color: var(--btn-color);
+}
+button[mat-button]:disabled {
+    background-color: gray;
+    color: darkgray;
+}
+
+mat-form-field {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+
+mat-label {
+    color: var(--text-color);
+}
+
+.mat-table {
+    background-color: transparent !important;
+    color: var(--text-color) !important;
+    width: 400px !important;
+}
+
+.mat-header-cell,
+.mat-cell {
+    background-color: transparent !important;
+    color: var(--text-color) !important;
+}
+
+.mat-row,
+.mat-header-row {
+    background-color: transparent !important;
+    color: var(--text-color) !important;
+}
+
+.mat-paginator {
+    background-color: transparent !important;
+    color: var(--text-color) !important;
+}
+.mat-paginator-navigation-next,
+.mat-paginator-navigation-previous {
+    color: var(--text-color) !important;
+}
+.chat-toggle-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 60%;
+    height: 60px;
+    width: 60px;
+}
+.chat-integrated {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    width: 30vw;
+    min-width: 350px;
+    height: 70vh;
+    min-height: 350px;
+}
+.game-mode {
+    position: relative;
+    width: 350px;
+    height: 100vh;
+    min-height: 350px;
+}
+.fullscreen {
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+.mat-tab-label {
+    color: var(--text-color);
+}
+
+.mat-tab-label-active {
+    color: var(--text-color);
+}
+

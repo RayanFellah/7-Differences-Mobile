@@ -1,0 +1,10 @@
+<div class="avatar-selection" *ngIf="!disabled">
+    <div *ngFor="let avatar of appAvatars" class="avatar-option">
+        <!-- <div *ngIf="avatar != selectedAvatar"> -->
+        <input type="radio" id="avatar{{avatar}}" name="avatar" [value]="avatar" [checked]="avatar === selectedAvatar"
+            (change)="onSelect(avatar)">
+        <label for="avatar{{avatar}}">
+            <img src="{{ getAvatarUrl(avatar) }}" alt="Avatar {{avatar}}">
+        </label>
+    </div>
+</div>

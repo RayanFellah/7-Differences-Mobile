@@ -1,0 +1,40 @@
+<app-top-bar [title]="ls.translate('Partie temps limité', 'Limited time mode')"></app-top-bar>
+
+<div id="wrapper">
+    <div id="container">
+        <div class="column">
+            {{ls.translate('Créer une partie', 'Create a game')}}
+            <div class="row">
+
+                <button mat-button (click)="friendsGame(_gameAccessType.ALL)">
+                {{ls.translate('Tous', 'All')}}
+                </button>
+                <button mat-button (click)="friendsGame(_gameAccessType.FRIENDS_ONLY)">{{
+                    ls.translate('Amis', 'Friends')
+                }}</button>
+                <button mat-button (click)="friendsGame(_gameAccessType.FRIENDS_AND_THEIR_FRIENDS_ONLY)">
+                {{
+                    ls.translate('Amis++', 'Friends++')
+                }}
+                </button>
+            </div>
+
+        </div>
+        <div class="column">
+
+            {{ls.translate('Rejoindre une partie', 'Join a game')}}
+
+            <app-popup-select-lobby [lobbies]="this.lobbies"
+                (lobbySelected)="onLobbySelected($event)"></app-popup-select-lobby>
+        </div>
+        <div class="column">
+
+            {{
+            ls.translate('Observer une partie', 'Watch a game')
+            }}
+            <app-popup-select-lobby class="observer" [lobbies]="this.games"
+                (lobbySelected)="onGameSelected($event)"></app-popup-select-lobby>
+        </div>
+    </div>
+</div>
+<app-channel-widget></app-channel-widget>

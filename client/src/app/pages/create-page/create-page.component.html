@@ -1,0 +1,141 @@
+<app-top-bar [title]="ls.translate('Création de fiches', 'Card creation')" [returnTo]="'/config'"></app-top-bar>
+<div id="containeur">
+
+    <div class='row tool-bar-row'>
+        <app-tool-bar id="toolbar"></app-tool-bar>
+        <div>
+            
+            
+            
+            <button mat-button (click)="undo()"> <mat-icon>undo</mat-icon> </button>
+            <button mat-button (click)="createPageService.undoAll()"> <mat-icon>delete</mat-icon> </button>
+            <button mat-button (click)="redo()"> <mat-icon>redo</mat-icon> </button>
+            <button mat-button (click)="dialogService.openDialogConfirm()">
+           
+                <mat-icon>save</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="fiche">
+            <p>{{ ls.translate('ORIGINALE', 'ORIGINAL') }}</p>
+
+            <app-drawing-zone id="original" #leftChild
+                (foregroundChanged)="createPageService.updateCanvasHistory($event, 0)">
+            </app-drawing-zone>
+        </div>
+
+        <div id="menu">
+            <span class="title">
+                {{ ls.translate('téléverser', 'UPLOAD') }}
+                <i class="far fa-image"></i>
+            </span>
+            <span class="format">
+                Format : .bmp 640x480
+            </span>
+
+            <input id="uploadImageL" #uploadImageL type='file' accept="image/bmp"
+                (change)="gameCreationToolsService.setImage($event)">
+            <input id="uploadImageR" #uploadImageR type='file' accept="image/bmp"
+                (change)="gameCreationToolsService.setImage($event)">
+            <input id="uploadImageBoth" #uploadImageBoth type='file' accept="image/bmp"
+                (change)="gameCreationToolsService.setImage($event)">
+            <div class="row">
+                <button mat-button class="full-width" (click)="uploadImageL.click()">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+
+                <button mat-button class="full-width" (click)="uploadImageR.click()">
+                    <mat-icon>arrow_forward</mat-icon>
+                </button>
+            </div>
+
+            <button mat-button (click)="uploadImageBoth.click()">
+                <mat-icon>arrow_back</mat-icon>
+                &
+                <mat-icon>arrow_forward</mat-icon>
+            </button>
+
+            <span class="title">
+                {{ ls.translate('réinitialiser l\'image de fond', 'reset background image') }}
+                <i class="far fa-image"></i>
+            </span>
+            <div class="row">
+
+                <button mat-button class="full-width" id="0" (click)="dialogService.openDialogReinit($event)">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+
+                <button mat-button class="full-width" id="1" (click)="dialogService.openDialogReinit($event)">
+                    <mat-icon>arrow_forward</mat-icon>
+                </button>
+            </div>
+            <button mat-button id="2" (click)="dialogService.openDialogReinit($event)">
+                <mat-icon>arrow_back</mat-icon>
+                &
+                <mat-icon>arrow_forward</mat-icon>
+            </button>
+
+            <span class="title">
+                {{ ls.translate('réinitialiser le dessin', 'reset drawing') }}
+            </span>
+            <div class="row">
+
+                <button mat-button class="full-width" id="0"
+                    (click)="gameCreationToolsService.reinitForeground($event)">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+
+                <button mat-button class="full-width" id="1"
+                    (click)="gameCreationToolsService.reinitForeground($event)">
+                    <mat-icon>arrow_forward</mat-icon>
+                </button>
+            </div>
+            <button mat-button id="2" (click)="gameCreationToolsService.reinitForeground($event)">
+                <mat-icon>arrow_back</mat-icon>
+                &
+                <mat-icon>arrow_forward</mat-icon>
+            </button>
+
+            <span class="title">
+                {{ ls.translate('dupliquer', 'duplicate') }}
+                <i class="fa-regular fa-clone"></i>
+            </span>
+            <div class="row">
+
+                <button mat-button class="full-width" id="0"
+                    (click)="gameCreationToolsService.duplicateForeground($event)">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+
+                <button mat-button class="full-width" id="1"
+                    (click)="gameCreationToolsService.duplicateForeground($event)">
+                    <mat-icon>arrow_forward</mat-icon>
+                </button>
+            </div>
+            <button mat-button id="2" (click)="gameCreationToolsService.exchangeForeground()">
+                <mat-icon>arrow_back</mat-icon>
+                &
+                <mat-icon>arrow_forward</mat-icon>
+            </button>
+            <span class="title">
+                {{ ls.translate('Generateur aleatoire', 'Random Generator') }}
+               
+            </span>
+             <div class="row">
+                <input type="range" min="1" max="5" step="1" [(ngModel)]="randomGenNumber" />
+                <label>{{ randomGenNumber }}</label>
+               
+                </div>
+                <button mat-button (click)="testGenerate()"> <i class="fa-solid fa-shuffle"></i></button>
+        </div>
+        <div class="fiche">
+            <p>{{ ls.translate('modifiée', 'modified') }}</p>
+
+            <app-drawing-zone id="modified" #rightChild
+                (foregroundChanged)="createPageService.updateCanvasHistory($event, 1)">
+            </app-drawing-zone>
+        </div>
+    </div>
+</div>
+<app-channel-widget></app-channel-widget>

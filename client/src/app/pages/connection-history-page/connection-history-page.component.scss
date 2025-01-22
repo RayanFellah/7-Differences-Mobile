@@ -1,0 +1,7 @@
+.page-container {
+    display: flex;
+    justify-content: center; /* Centrer le contenu horizontalement */
+    flex-direction: column;
+    align-items: center; /* Centrer le contenu verticalement si nécessaire */
+    overflow-x: hidden; /* Cache les débordements horizontaux */
+  }

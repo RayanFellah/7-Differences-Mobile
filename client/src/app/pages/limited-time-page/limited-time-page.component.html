@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="game">
+        <section class="play-area-container">
+        <div class="play-area">
+
+            <app-counter class="scaling" #counter [name]="username"></app-counter>
+            <app-counter class="scaling" #counter2 [name]="username2"></app-counter>
+            <div class="play-zone">
+                <app-observer-area id="canvas3" #canvas3 [isObserver]="this.isObserver" [observerColor]="this.colorObserver"  [observe1]="this.ischecked1" [observe2]="this.ischecked2" [observe3]="this.ischecked3" [observe4]="this.ischecked4" [playerNumber]="selectedPlayer"></app-observer-area>
+                <app-play-area id="pa1" #play1 class="play-area" tabindex="0" [url]="link1" [diff]="this.diff" [isObserver]="this.isObserver"></app-play-area>
+            </div>
+        </div>
+        <div class="play-area-middle">
+                <app-logo></app-logo>
+                <div class="play-area-stats">
+                    <app-game-info></app-game-info>
+                    <app-counter #counter [name]="username"></app-counter>
+                    <app-chronometre #timer (timeUp)="endGame(false)"></app-chronometre>
+                </div>
+                <div class="popup-quit">
+                    <app-popup-quit [gameEnded]="false" *ngIf="wantToQuit" [message]="message"
+                        [buttonTitle]="buttonTitle" (wantToQuitChange)="onContinue($event)"></app-popup-quit>
+                </div>
+                
+                <app-custom-button title="Abandonner" iconClass="fas fa-poo"
+                    (click)="wantToQuit = true"></app-custom-button>
+                    <div class="obs">
+                        <h1>{{ ls.translate('Nombre d\'observateurs:', 'Number of observers:') }}
+                            {{this.nbOfObservers}}</h1>
+                    </div>
+                    <div *ngIf="isObserver" class="observe">
+                        <h1> interact with player</h1>
+                    <div>
+                        <input type="radio" id="player1" name="player" [(ngModel)]="selectedPlayer" value="1">
+                        <label for="player1">Send to player1</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="player2" name="player" [(ngModel)]="selectedPlayer" value="2">
+                        <label for="player2">Send to player2</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="player3" name="player" [(ngModel)]="selectedPlayer" value="3">
+                        <label for="player3">Send to player3</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="player4" name="player" [(ngModel)]="selectedPlayer" value="4">
+                        <label for="player4">Send to player4</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="player4" name="player" [(ngModel)]="selectedPlayer" value="5">
+                        <label for="player4">Send to All</label>
+                    </div> 
+                    </div>
+                   
+        </div>
+        <div class="play-area">
+            <app-counter class="scaling" #counter3 [name]="username3"></app-counter>
+            <app-counter class="scaling" #counter4 [name]="username4"></app-counter>
+            <div class="play-zone">
+                <app-observer-area id="canvas4" #canvas4 [isObserver]="this.isObserver" [observerColor]="this.colorObserver" [observe1]="this.ischecked1" [observe2]="this.ischecked2" [observe3]="this.ischecked3" [observe4]="this.ischecked4" [playerNumber]="selectedPlayer"></app-observer-area>
+                <app-play-area id="pa2" #play2 class="play-area" tabindex="0" [url]="link2" [diff]="this.diff" [isObserver]="this.isObserver" ></app-play-area>
+            </div>
+        </div>
+         
+        </section>
+        
+    </div>
+    <!-- <div class="channel-widget-container">
+        <app-channel-widget #channels></app-channel-widget>
+    </div> -->
+    
+</div>
+<app-popup-quit *ngIf="gameEnded" [gameEnded]="true" [message]="message" buttonTitle="Retour au menu"></app-popup-quit>
+<div class="canvas-container">
+    <canvas id="canvas1" #canvas1 width="640" height="480"></canvas>
+    <canvas id="canvas2" #canvas2 width="640" height="480"></canvas>
+</div>
+<audio id="audio" *ngIf="isDiff" [src]="this.authService.specialSuccessSoundUsed ? '../../../assets/special-audios/success-sound.mp3' : '../../../assets/audio/success.mp3'" autoplay></audio>
+<app-channel-widget class="zied"></app-channel-widget>

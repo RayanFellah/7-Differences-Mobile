@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="game">
+
+        <section class="play-area-container">
+            <app-play-area class="play-area" id="pa1" tabindex="0" [url]="link1" [diff]="this.diff"
+                #leftPlayArea></app-play-area>
+            <div class="play-area-middle">
+                <div class="play-area-stats">
+                    <app-game-info></app-game-info>
+                    <app-counter #counter [name]="username"></app-counter>
+                    <app-chronometre #timer></app-chronometre>
+                </div>
+                <div class="popup-quit">
+                    <app-popup-quit *ngIf="wantToQuit" [gameEnded]="false" [message]="message"
+                        [buttonTitle]="buttonTitle" (wantToQuitChange)="onContinue($event)"></app-popup-quit>
+                </div>
+                <app-clue [isClassic]="true" [leftPlayArea]="leftPlayArea" [rightPlayArea]="rightPlayArea"
+                    [timer]="timer" [PENALTY]="timer.penalty" #clues></app-clue>
+                <app-custom-button *ngIf="router.url !== '/replay'" title="Abandonner" iconClass="fas fa-poo"
+                    (click)="wantToQuit = true"></app-custom-button>
+            </div>
+            <app-play-area class="play-area" id="pa2" tabindex="0" [url]="link2" [diff]="this.diff"
+                #rightPlayArea></app-play-area>
+        </section>
+    </div>
+</div>
+<app-popup-quit *ngIf="gameEnded" [gameEnded]="true" [message]="message" [isSolo]="true"
+    buttonTitle="Retour au menu"></app-popup-quit>
+<div class="canvas-container">
+    <canvas id="canvas1" #canvas1 width="640" height="480"></canvas>
+    <canvas id="canvas2" #canvas2 width="640" height="480"></canvas>
+</div>
+<audio id="audio" *ngIf="isDiff" src="assets/audio/success.mp3" autoplay></audio>
+<app-channel-widget></app-channel-widget>

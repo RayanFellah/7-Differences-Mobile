@@ -1,0 +1,54 @@
+.user-welcome {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacement entre l'avatar et le texte de bienvenue */
+    cursor: pointer;
+    justify-content: space-between;
+    background-color: #082e57;;
+}
+
+.text {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+.user-avatar {
+    width: 50px; /* Taille réduite de l'avatar */
+    height: 50px; /* Garde l'aspect carré de l'avatar */
+    border-radius: 50%; /* Rend l'avatar circulaire */
+    object-fit: cover; /* S'assure que l'image couvre bien l'espace sans être déformée */
+    border: 2px solid #007bff; /* Ajoute une bordure pour l'aspect visuel */
+}
+
+.user-welcome h2 {
+    margin: 0;
+    font-size: 1.2rem; /* Taille de police adaptée */
+    color: #333; /* Couleur de police sobre */
+}
+
+.user-welcome h2 span {
+    color: white; /* Met en avant le nom d'utilisateur */
+}
+
+// .user-medals {
+//     display: flex;
+//     align-items: center;
+//     gap: 5px; /* Espacement entre les médailles */
+//     padding: 0 10px; /* Ajustez selon votre design */
+//     position: absolute;
+//     top: 15px;
+//     left: 25px;
+// }
+
+.medal-icon {
+    width: 20px; /* Taille réduite pour les icônes de médailles */
+    height: 20px; /* Gardez l'aspect carré */
+    object-fit: cover;
+}
+
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}	

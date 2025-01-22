@@ -1,0 +1,123 @@
+.observer{
+    color:green;
+    background-color: green;
+    
+   
+   }
+.column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#wrapper{
+    width: 100%;
+    height: calc(100% - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container{
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-rows: 5fr 6fr 3fr;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    color: var(--text-color);
+    padding: 0px;
+}
+
+#container>* {
+    padding: 0 60px;
+}
+
+// game name
+
+
+// players
+
+#players > *{
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.inlineText *{
+    margin-right: 10px;
+    text-shadow: 0 0 5px rgb(255,255,255, 0.5);
+}
+
+.inlineText > i{
+    color: rgb(255, 139, 139);
+    cursor: pointer;
+}
+.inlineText > i:hover{
+    color: rgb(255, 0, 0);
+    text-shadow: 0 0 20px rgb(255, 0, 0);
+}
+
+#waitTitle{
+    font-size: 14px;
+}
+
+// buttons
+
+#container>div:last-child{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#btnCoop, #btnStart{
+    width: 100px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid rgb(109, 168, 255);
+    color: whitesmoke;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#btnCoop:hover{
+    background-color: green;
+}
+#btnStart:hover{
+    background-color: green;
+}
+
+#btnStart[disabled]{
+    border: 1px solid rgb(46, 107, 198);
+    color: rgb(46, 107, 198);
+    cursor: not-allowed;
+}
+#btnStart[disabled]:hover{
+    background-color: transparent;
+}
+
+.top-bar {
+    display: flex;
+    width: 100%;
+    background-color: #082e57;
+    padding: 5px 10px;
+    height: 40px;
+    align-items: center;
+}
+.back-button {
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    color: white;
+  }
+  

@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="side">
+        <button mat-button class="back-button" *ngIf="backArrow" [routerLink]="returnTo">
+        <mat-icon>arrow_back</mat-icon>
+        </button>  
+        <span class="title">{{title}}</span>
+    </div>
+<div class="side">
+        <ng-content></ng-content>
+    </div>
+</div>

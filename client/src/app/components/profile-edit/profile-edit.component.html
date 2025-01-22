@@ -1,0 +1,40 @@
+<mat-expansion-panel (opened)="isPanelOpened = true" (closed)="isPanelOpened = false">
+    <mat-expansion-panel-header>
+        {{ ls.translate('Modifier le pseudonyme', 'Modify username') }}
+    </mat-expansion-panel-header>
+    <div class="input-button-container">
+        <mat-form-field class="field">
+            <mat-label>{{ls.translate('Entrez votre nouveau pseudonyme', 'Enter your new username')}}
+            </mat-label>
+            <input matInput [(ngModel)]="newUserName" maxlength="10">
+        </mat-form-field>
+        <button mat-button (click)="updateUsername(newUserName)">
+            {{ls.translate('Confirmer', 'Confirm')}}
+        </button>
+    </div>
+</mat-expansion-panel>
+
+
+<mat-expansion-panel (opened)="isPanelOpened = true" (closed)="isPanelOpened = false">
+    <mat-expansion-panel-header>
+        {{ ls.translate('Modifier l\'avatar', 'Modify avatar') }}
+    </mat-expansion-panel-header>
+    <div class="input-button-container">
+        <app-avatar-selector [selectedAvatar]="currentAvatar" (avatarSelect)="onAvatarSelected($event) "
+            [disabled]="isCustomAvatarUploaded" [pageType]="'accountSettingsPage'"></app-avatar-selector>
+
+        <div class="row">
+            <button mat-button (click)="updateAvatar()">
+                {{ls.translate('Confirmer', 'Confirm')}}
+            </button>
+
+            <div class="upload-group">
+                <input hidden type="file" #avatarUpload id="avatar-upload" class="form-control"
+                (change)="onFileSelected($event)">
+                <button mat-button (click)="avatarUpload.click()">
+                    {{ls.translate('Upload File', 'Upload File')}}
+                </button>
+            </div>
+        </div>
+    </div>
+</mat-expansion-panel>

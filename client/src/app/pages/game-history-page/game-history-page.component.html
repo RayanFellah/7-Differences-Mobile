@@ -1,0 +1,24 @@
+<div class="page-container">
+    <mat-table class="custom-table" [dataSource]="userGameHistory">
+        <!-- Colonnes Date et Heure -->
+        <ng-container matColumnDef="dateHeure">
+            <mat-header-cell *matHeaderCellDef class="custom-header"> Date </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                {{ element.date | date:'yyyy-MM-dd - HH:mm' }}
+            </mat-cell>
+        </ng-container>
+
+        <!-- Colonnes Action -->
+        <ng-container matColumnDef="result">
+            <mat-header-cell *matHeaderCellDef class="custom-header">
+                {{ languageService.translate('Partie gagnée', 'Game won') }}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.wonGame ? '👑' : '❌'}} </mat-cell>
+        </ng-container>
+
+        <!-- Entêtes et Lignes de Tableau -->
+        <mat-header-row *matHeaderRowDef="displayedColumns" class="custom-header"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator pageSize="5" class="custom-paginator"></mat-paginator>
+</div>

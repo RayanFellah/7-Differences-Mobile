@@ -1,0 +1,7 @@
+<div class="info">
+    <p>Nombres d'indices restants: {{ nClues }}</p>
+    <p>Pénalité de temps par indice: {{ isClassic ? "+" : "-"}} {{ PENALTY }}</p>
+</div>
+<app-custom-button *ngIf="router.url !== '/replay'" title="Indice" iconClass="fas fa-lightbulb" (click)="sendClue()"
+    [disabled]="nClues === 0"></app-custom-button>
+<div class="indice"></div>

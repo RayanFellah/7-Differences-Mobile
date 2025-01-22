@@ -1,0 +1,78 @@
+/* Style général de la page */
+.history-header {
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 40px;
+}  
+h1 {
+    scale: 100%;
+    position: relative;
+    top: 30px;
+    color: white;
+    font-family: 'spaceranger';
+}
+
+.page-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centrer le contenu horizontalement */
+    flex-direction: column;
+    align-items: center; /* Centrer le contenu verticalement si nécessaire */
+    margin: 20px;
+    width: 100vw; /* Utilisez vw pour la largeur pour éviter les débordements hors de l'écran */
+    overflow-x: hidden; /* Cache les débordements horizontaux */
+  }
+
+/* Appliquez une largeur maximale au tableau et centrez-le */
+.mat-elevation-z8 {
+    max-width: 80%; /* ou la largeur souhaitée */
+    margin: auto; /* Cette propriété centre le tableau */
+}
+
+.mat-table {
+    max-width: 100%; /* Retirez la largeur fixe pour éviter les débordements */
+    margin: 0 auto; /* Centrer dans la page */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 750px;
+}
+
+.mat-header-cell, .mat-cell {
+        color: black; /* ou une autre couleur qui correspond au design */
+}
+
+.mat-header-row {
+    background-color: #104e8b; /* Choisissez une couleur qui se marie bien avec le fond */
+}
+
+.mat-row {
+    border-bottom: 1px solid #104e8b; /* ou une autre couleur pour séparer les rangées */
+}
+
+
+/* Améliore la lisibilité sur les écrans larges */
+@media (min-width: 600px) {
+.mat-header-cell, .mat-cell {
+        padding: 8px 24px;
+    }
+}
+
+/* Alternance des couleurs de fond pour les lignes pour améliorer la lisibilité */
+.mat-row:nth-child(even){
+    background-color: #fafafa;
+}
+
+.mat-row:nth-child(odd){
+    background-color: #fff;
+}
+
+/* Style pour mettre en évidence les actions spécifiques, si nécessaire */
+.action-connexion {
+    color: green;
+}
+
+.action-deconnexion {
+    color: red;
+}
+  

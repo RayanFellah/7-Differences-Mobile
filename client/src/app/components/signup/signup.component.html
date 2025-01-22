@@ -1,0 +1,83 @@
+<app-top-bar class="absolute-top-bar" [title]="ls.translate('Inscription', 'Sign up')" [backArrow]="true" [returnTo]="'/login'"></app-top-bar>
+
+<div class="login-form-container">
+    <form [formGroup]="signupFormGroup" (ngSubmit)="signupProcess()" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="username">
+                {{ ls.translate('Nom d\'utilisateur :', 'Username :') }}
+            </label>
+            <input type="text" id="username" class="form-control" maxlength="10" formControlName="username">
+            <div *ngIf="signupFormGroup.get('username')?.touched && signupFormGroup.get('username')?.errors">
+                <small class="text-danger" *ngIf="signupFormGroup.get('username')?.errors?.required">
+                    {{ ls.translate('*Le nom d\'utilisateur est obligatoire.', '*The username is required.') }}
+                </small>
+                <small class="text-danger" *ngIf="signupFormGroup.get('username')?.errors?.maxLength">
+                    {{ ls.translate(
+                        '*Le nom d\'utilisateur ne doit pas dépasser 10 caractères.', 
+                        '*The username must not exceed 10 characters.'
+                    ) }}
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" class="form-control" maxlength="50" formControlName="email">
+            <div *ngIf="signupFormGroup.get('email')?.touched && signupFormGroup.get('email')?.errors">
+                <small class="text-danger" *ngIf="signupFormGroup.get('email')?.errors?.required">
+                {{ ls.translate('*L\'email est obligatoire.', '*The email is required.') }}    
+                </small>
+                <small class="text-danger" *ngIf="signupFormGroup.get('email')?.errors?.email">
+                {{ ls.translate('*Veuillez entrer un email valide.', '*Enter a valid email.') }}    
+                </small>
+                <small class="text-danger" *ngIf="signupFormGroup.get('email')?.errors?.pattern">
+                    {{ ls.translate('*Le format de l\'email est invalide.', '*The email format is invalid.') }}
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">
+            {{ ls.translate('Mot de passe :', 'Password :') }}
+            </label>
+            <input type="password" id="password" class="form-control" formControlName="password">
+            <div *ngIf="signupFormGroup.get('password')?.touched && signupFormGroup.get('password')?.errors">
+                <small class="text-danger" *ngIf="signupFormGroup.get('password')?.errors?.required">
+                {{ ls.translate('*Le mot de passe est obligatoire.', '*The password is required.') }}
+                </small>
+                <small class="text-danger"
+                    *ngIf="signupFormGroup.get('password')?.errors?.minlength || signupFormGroup.get('password')?.errors?.minlength || signupFormGroup.get('password')?.errors?.maxLength">
+                    {{ ls.translate('*Le mot de passe doit contenir entre 5 et 8 caractères.', '*The password must contain between 5 and 8 characters.') }}
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">
+            {{
+                ls.translate('Confirmer le mot de passe:', 'Confirm password:')
+            }}
+            </label>
+            <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword">
+            <div *ngIf="signupFormGroup.errors?.notSame && signupFormGroup.get('confirmPassword')?.touched">
+                <small class="text-danger">
+                {{ ls.translate('*Les mots de passe ne correspondent pas.', '*Passwords do not match.') }}
+                </small>
+            </div>
+        </div>
+        <label for="avatar">
+        {{ ls.translate('Choisissez un avatar:', 'Choose an avatar:') }}
+        </label>
+        <app-avatar-selector (avatarSelect)="onAvatarSelected($event)" [pageType]="'signUpPage'"></app-avatar-selector>
+        <div *ngIf="signupFormGroup.get('avatar')?.touched && signupFormGroup.get('avatar')?.errors">
+            <small class="text-danger" *ngIf="signupFormGroup.get('avatar')?.errors?.required">
+            {{ ls.translate('*Vous devez choisir un avatar.', '*You must choose an avatar.') }}    
+            </small>
+        </div>
+        <button mat-button type="submit" [disabled]="!signupFormGroup.valid">
+        {{ ls.translate('S\'inscrire', 'Sign up') }}
+        </button>
+
+
+    </form>
+</div>

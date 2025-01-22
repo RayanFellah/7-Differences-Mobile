@@ -1,0 +1,68 @@
+<div id="popupContainer">
+
+    <div id="closeArea">
+        <i class="fa fa-close" (click)="closeDialog()" *ngIf="!data.preventClose"></i>
+    </div>
+
+    <div id="content">
+        <div>
+            <p [innerHTML]="data.message" *ngIf="data.message"></p>
+        </div>
+
+        <div>
+
+            <div *ngIf="data.stage===0">
+                <p>Sélectionnez le rayon d'élargissement</p>
+                <input type="radio" name="pixel" id="0" value="0" (click)="setFeedbackRadius($event)">
+                <label for="0">0 pixels</label><br>
+                <input type="radio" name="pixel" id="3" value="3" (click)="setFeedbackRadius($event)" checked>
+                <label for="3">3 pixels</label><br>
+                <input type="radio" name="pixel" id="9" value="9" (click)="setFeedbackRadius($event)">
+                <label for="9">9 pixels</label><br>
+                <input type="radio" name="pixel" id="15" value="15" (click)="setFeedbackRadius($event)">
+                <label for="15">15 pixels</label>
+            </div>
+
+            <div *ngIf="data.stage===1">
+                <!--Spinner from https://loading.io/css/-->
+                <div class="lds-spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div *ngIf="data.stage===2">
+                <img src="{{data.differencesImg}}" id="imageDifferences" alt="Image de différences">
+                <p>Il y a {{data.nbDifferences}} différences</p>
+            </div>
+
+            <div *ngIf="data.stage===3">
+                <input id="name" (change)="setFeedbackName($event)" #name>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="bottom">
+        <button id="btnText" class="btn" *ngIf="data.btnText" (click)="handleEvent($event)">{{data.btnText}}</button>
+        <button id="btnText2" class="btn" *ngIf="data.btnText2" (click)="handleEvent($event)">{{data.btnText2}}</button>
+
+        <div *ngIf="data.btnFileText">
+            <label for="btnFile" class="btn">{{data.btnFileText}}</label>
+            <input id="btnFile" type="file" accept="image/bmp" (change)="handleEvent($event)">
+        </div>
+
+    </div>
+
+</div>

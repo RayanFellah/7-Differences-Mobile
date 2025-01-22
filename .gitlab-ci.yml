@@ -1,0 +1,3 @@
+Empty job:
+  script:
+    - echo "This pipeline is empty"

@@ -1,0 +1,20 @@
+div {
+    display: flex;
+    height: 200px;
+    width: 200px;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+
+    background: url('../../../assets/chrono.png') no-repeat;
+    background-size: 180px;
+
+    background-position: left 10px top;
+    font-size: small;
+}
+i {
+    position: relative;
+    left: 20px;
+}

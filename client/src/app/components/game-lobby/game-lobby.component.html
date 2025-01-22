@@ -1,0 +1,11 @@
+<h2>Liste des parties en cours</h2>
+<mat-dialog-content>
+    <mat-list>
+        <mat-list-item *ngFor="let game of games" (click)="selectGame(game)">
+            {{ game.gameName }} - Joueur: {{ game.getPlayer(0) }}
+        </mat-list-item>
+    </mat-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="selectedGame">Rejoindre la partie sélectionnée</button>
+</mat-dialog-actions>

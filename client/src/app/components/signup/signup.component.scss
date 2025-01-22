@@ -1,0 +1,118 @@
+button {
+    width: 100%;
+    margin: 0; // Reset margin
+    padding: 0; // Reset padding
+}
+
+.login-form-container {
+    width: 50%;
+    max-width: 600px;
+    min-width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    // color: #ffffff;
+    font-weight: 500;
+}
+
+.text-danger {
+    color: #dc3545;
+}
+
+.form-group input,
+.form-group input[type='file'] {
+    padding: 10px;
+    border: 1px solid var(--text-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group input[type='file']:focus {
+    border-color: #0a58ca;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+.alert {
+    color: #f8d7da;
+    background-color: #721c24;
+    border-color: #f5c6cb;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input[type='file'] {
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.form-group input[type='file']::file-selector-button {
+    padding: 5px;
+    margin-right: 5px;
+    background-color: var(--text-color);
+    color: #0d6efd;
+    border-radius: 4px;
+    border: 1px solid #0d6efd;
+    transition: background-color 0.3s ease;
+}
+
+.form-group input[type='file']::file-selector-button:hover {
+    background-color: #0d6efd;
+    color: var(--text-color);
+}
+.avatar-option label {
+    display: block; 
+    cursor: pointer;
+    width: 70px; 
+    height: 70px; 
+    padding: 10px; 
+}
+.avatar-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: start;
+}
+
+.avatar-option img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.avatar-option input[type="radio"] {
+    display: none;
+}
+
+.avatar-option input[type="radio"]:checked + label {
+    border: 3px solid blue;
+    background-color: #9ea8b0;
+}
+.absolute-top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+    width: 100%;
+}

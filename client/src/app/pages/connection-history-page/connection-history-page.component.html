@@ -1,0 +1,24 @@
+<div class="page-container">
+    <mat-table class="custom-table" [dataSource]="connectionHistory">
+        <!-- Colonnes Date et Heure -->
+        <ng-container matColumnDef="dateHeure">
+            <mat-header-cell *matHeaderCellDef class="custom-header"> Date </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                {{ element.date | date:'yyyy-MM-dd - HH:mm' }}
+            </mat-cell>
+        </ng-container>
+
+        <!-- Colonnes Resultat -->
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef class="custom-header">
+                 Action
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.action}} </mat-cell>
+        </ng-container>
+
+        <!-- Entêtes et Lignes de Tableau -->
+        <mat-header-row *matHeaderRowDef="displayedColumns" class="custom-header"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator pageSize="5" class="custom-paginator"></mat-paginator>
+</div>

@@ -1,0 +1,46 @@
+<div id="parent">
+    <div id="background">
+        <span id="tool">
+            <app-toolbar-tools [tool]="0" (click)="setTool(0)"></app-toolbar-tools>
+            <app-toolbar-tools [tool]="1" (click)="setTool(1)"></app-toolbar-tools>
+            <app-toolbar-tools [tool]="2" (click)="setTool(2)"></app-toolbar-tools>
+            <app-toolbar-tools [tool]="3" (click)="setTool(3)"></app-toolbar-tools>
+            <app-toolbar-tools [tool]="4" (click)="setTool(4)"></app-toolbar-tools>
+            <app-toolbar-tools [tool]="5" (click)="setTool(5)"></app-toolbar-tools>
+        </span>
+        <span id="color">
+            <app-toolbar-colors color="red"></app-toolbar-colors>
+            <app-toolbar-colors color="blue"></app-toolbar-colors>
+            <app-toolbar-colors color="lightBlue"></app-toolbar-colors>
+            <app-toolbar-colors color="yellow"></app-toolbar-colors>
+            <app-toolbar-colors color="green"></app-toolbar-colors>
+            <app-toolbar-colors color="lime"></app-toolbar-colors>
+            <app-toolbar-colors color="purple"></app-toolbar-colors>
+            <app-toolbar-colors color="white"></app-toolbar-colors>
+            <app-toolbar-colors color="black"></app-toolbar-colors>
+            <app-toolbar-colors color=""></app-toolbar-colors>
+        </span>
+    </div>
+    <div id="sliderContainer">
+        <div class="penSlider" *ngIf="this.tool==0">
+            <i class="fa-solid fa-pen"></i>
+            <input id="pencilSlider" type="range" value="15" min="1" max="30" step="3"
+                (change)="penWidthChanged($event)">
+        </div>
+        <div class="eraserSlider" *ngIf="this.tool==1">
+            <i class="fa-solid fa-eraser"></i>
+            <input id="eraserSlider" type="range" value="15" min="5" max="30" step="3"
+                (change)="eraserWidthChanged($event)">
+        </div>
+        <div class="radiusSlider" *ngIf="this.tool==4">
+            <i>{{languageService.translate("Rayon", "Radius")}} </i>
+            <input type="range" value="15" min="5" max="30" step="3"
+                (change)="radiusChanged($event)">
+        </div>
+        <div class="densitySlider" *ngIf="this.tool==4">
+            <i>{{languageService.translate("Densité", "Density")}} </i>
+            <input id="eraserSlider" type="range" value="100" min="50" max="200" step="10"
+                (change)="densityChanged($event)">
+        </div>
+    </div>
+</div>

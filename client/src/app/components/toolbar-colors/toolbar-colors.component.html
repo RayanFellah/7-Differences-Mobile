@@ -1,0 +1,2 @@
+<input (click)="setColor()" *ngIf="color else elseBlock" type="button" [style.background-color]="color">
+<ng-template #elseBlock> <input #colorPicker (change)="setColor();" type="color" id="colorPicker"></ng-template>

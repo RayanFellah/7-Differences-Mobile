@@ -1,0 +1,42 @@
+<app-top-bar 
+[title]="languageService.translate('Accueil', 'Home')"
+[backArrow]="false"
+>
+    <button mat-button routerLink="/friends">
+        {{ languageService.translate('Amis', 'Friends') }}
+    </button>
+    <button mat-button routerLink="/settings">
+    {{ languageService.translate('Réglages', 'Settings')}}
+    </button>
+    <p class="text">
+        {{ languageService.translate('Bonjour', 'Hi') }} {{authService.currentUser?.username}}
+    </p>
+    <img [src]="avatarService.getAvatarPath(authService.currentUser?.avatar ?? '')" alt="Avatar" class="user-avatar">
+    <div class="user-medals">
+        <img *ngFor="let medal of boughtMedals" [src]="medal.path" [alt]="medal.name" class="medal-icon">
+    </div>
+</app-top-bar>
+
+<div class="row">
+
+    <div class="column">
+        <button mat-button class="larger-button" routerLink="/selecto">{{languageService.translate('Mode classique', 'Classic Mode') }} 
+        </button>
+        <button mat-button class="larger-button" routerLink="/limited-selecto">
+            {{ languageService.translate('Mode temps limité', 'Limited Time Mode') }}
+        </button>
+        <button mat-button class="larger-button" routerLink="/password">
+            Admin
+        </button>
+        <button mat-button class="larger-button" routerLink="/shop">
+            {{ languageService.translate('Boutique', 'Shop') }}
+        </button>
+        <button mat-button class="larger-button" (click)="logout()">
+            {{ languageService.translate('Déconnexion', 'Logout') }}
+        </button>
+    </div>
+
+    <img src='assets/logo1.png' alt='logo' class='logo'>
+    
+</div>
+<app-channel-widget></app-channel-widget>

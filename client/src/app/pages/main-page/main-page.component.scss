@@ -1,0 +1,50 @@
+button .mat-icon {
+    font-size: 35px;
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 50px);
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+}
+.logo {
+    overflow: hidden;
+    align-self: center;
+    max-height: 300px;
+    object-fit: contain;
+}
+.larger-button {
+    padding: 0 50px;
+}
+
+.text {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.user-avatar {
+    width: 40px; /* Taille réduite de l'avatar */
+    height: 40px; /* Garde l'aspect carré de l'avatar */
+    border-radius: 50%; /* Rend l'avatar circulaire */
+    object-fit: cover; /* S'assure que l'image couvre bien l'espace sans être déformée */ /* Ajoute une bordure pour l'aspect visuel */
+}
+
+.medal-icon {
+    width: 10px;
+    height: 10px;
+    position: relative;
+    top: 15px;
+    right: 10px;
+    margin-right: 10px;
+}

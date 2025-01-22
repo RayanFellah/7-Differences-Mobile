@@ -1,0 +1,107 @@
+
+#wrapper{
+    width: 100%;
+    height: calc(100% - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container{
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-rows: 5fr 6fr 3fr;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    color: var(--text-color);
+    padding: 0px;
+}
+
+#container>* {
+    padding: 0 60px;
+}
+
+#container>div:first-child{
+    display: flex;
+    align-items: end;
+    margin-bottom: 30px;
+}
+
+#container>div:first-child input{
+    width: 40%;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px
+}
+
+// players
+
+#players > *{
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+#players strong{
+    color: rgb(190, 216, 255);
+}
+
+.inlineText *{
+    margin-right: 10px;
+    text-shadow: 0 0 5px rgb(255,255,255, 0.5);
+}
+
+.inlineText > i{
+    color: rgb(255, 139, 139);
+    cursor: pointer;
+}
+.inlineText > i:hover{
+    color: rgb(255, 0, 0);
+    text-shadow: 0 0 20px rgb(255, 0, 0);
+}
+
+#waitTitle{
+    font-size: 14px;
+}
+
+// buttons
+
+#container>div:last-child{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#btnLeave, #btnStart{
+    width: 100px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid rgb(109, 168, 255);
+    color: whitesmoke;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#btnLeave:hover{
+    background-color: red;
+}
+#btnStart:hover{
+    background-color: green;
+}
+
+#btnStart[disabled]{
+    border: 1px solid rgb(46, 107, 198);
+    color: rgb(46, 107, 198);
+    cursor: not-allowed;
+}
+#btnStart[disabled]:hover{
+    background-color: transparent;
+}
+
+  

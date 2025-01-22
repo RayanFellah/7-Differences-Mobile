@@ -1,0 +1,8 @@
+
+<div>
+    <div class="lobby-list">
+        <div class="lobby-item" *ngFor="let lobby of lobbies">
+            <button mat-button (click)="joinLobby(lobby.gameId)">{{ lobby.players[0].name }}</button>
+        </div>
+    </div>
+</div>

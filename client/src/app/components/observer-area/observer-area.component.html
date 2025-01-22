@@ -1,0 +1,7 @@
+<canvas id="canvas" #canvas width="640" height="480" 
+(mousedown)="startDrawing($event)"
+        (mousemove)="draw($event)"
+        (mouseup)="stopDrawing()"
+        (mouseleave)="stopDrawing()"
+
+[ngStyle]="{'pointer-events': isObserver ? 'auto' : 'none'}"></canvas>

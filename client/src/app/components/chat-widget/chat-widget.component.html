@@ -1,0 +1,51 @@
+<div class="wrapper" *ngIf="isVisible">
+    <div id="chatHeader">
+        <button mat-button (click)="closeChat()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <span *ngIf="isGameChannel(channel); else notGameChannel">
+            Game Chat 🎮
+        </span>
+        <ng-template #notGameChannel>
+            <span>{{ channel }}</span>
+        </ng-template>
+    </div>
+    <div id="scrollBox">
+        <div id="messageWrapper">
+            <!-- Section Messages -->
+            <ng-container *ngFor="let message of getFilteredMessages()">
+                <div class="message" *ngIf="message.sender && message.sender.trim() !== ''"
+                    [class.opponent]="message.sender !== currentUser!.username "
+                    [class.sent]="message.sender === currentUser!.username " [class.system]="message.sender ==='SYSTEM'">
+
+                    <div class="message-header">
+                        <img *ngIf="message.sender !== 'SYSTEM'" [src]="this.getAvatarUrl(message.avatar)"
+                            class="avatar" alt="Avatar">
+                        <span class="sender">{{ message.sender }}</span>
+                        <span class="time">{{ message.time }}</span>
+                    </div>
+                    <div class="message-body">
+                        <img *ngIf="message.isGif" [src]="message.body" alt="GIF" class="message-gif">
+                        <span *ngIf="!message.isGif" class="body" [innerHTML]="message.body"></span>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+    </div>
+    <div class="textArea">
+        <!-- Nouveau Message -->
+        <input type="text" class="textBox" maxlength="800" (keydown)="handleEnterPress($event)" (input)="setContent($event)"
+        [placeholder]="languageService.translate('Écrire un message' , 'Type a message')" [disabled]="canSend!"
+        [(ngModel)]="messageContent">
+        <!-- <textarea class="textBox" maxlength="800" (keydown)="handleEnterPress($event)" (input)="setContent($event)"
+            [placeholder]="languageService.translate('ecrire un message' , 'Type a message')" [disabled]="canSend!"
+            [(ngModel)]="messageContent"> -->
+        <!-- </textarea> -->
+        <button mat-button class="sendButton" (click)="send()" [disabled]="canSend!">
+            <mat-icon>send</mat-icon>
+        </button>
+    </div> 
+
+
+</div>
